@@ -23,9 +23,9 @@ public class Kraeuter {
     @NotNull
     private String latName;
     @NotNull
-    private Map<String,String> eigenschaften= new HashMap<>();
+    private String eigenschaften;
 
-    public Kraeuter(String name, String latName, Map<String, String> eigenschaften) {
+    public Kraeuter(String name, String latName, String eigenschaften) {
         this.name = name;
         this.latName = latName;
         this.eigenschaften = eigenschaften;
@@ -55,11 +55,11 @@ public class Kraeuter {
         this.id = id;
     }
 
-    public Map<String, String> getEigenschaften() {
+    public String getEigenschaften() {
         return eigenschaften;
     }
 
-    public void setEigenschaften(Map<String, String> eigenschaften) {
+    public void setEigenschaften(String eigenschaften) {
         this.eigenschaften = eigenschaften;
     }
 }
