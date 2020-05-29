@@ -25,6 +25,10 @@ public class Kraeuter {
     @NotNull
     private String eigenschaften;
 
+    public Kraeuter(){
+
+    }
+
     public Kraeuter(String name, String latName, String eigenschaften) {
         this.name = name;
         this.latName = latName;

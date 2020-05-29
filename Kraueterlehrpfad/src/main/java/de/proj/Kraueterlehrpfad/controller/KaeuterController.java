@@ -21,12 +21,12 @@ public class KaeuterController {
 
     @RequestMapping(
         method = RequestMethod.GET,
-        path="/kraeuter",
+        path="/kraut",
         produces= MediaType.APPLICATION_JSON_VALUE)
 
 
 
-    public List getKraeuter() {
+    public List<Kraeuter> getKraeuter() {
 
 
          List<Kraeuter> kraeuterList = kraeuterRepository.findAll() ;
