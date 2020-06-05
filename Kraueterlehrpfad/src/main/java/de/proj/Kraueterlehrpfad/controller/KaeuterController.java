@@ -19,7 +19,7 @@ public class KaeuterController {
 
     @RequestMapping(
         method = RequestMethod.GET,
-        path="/kraut",
+        path="/kraeuterliste",
         produces= MediaType.APPLICATION_JSON_VALUE)
 
     public List<Kraeuter> getKraeuter() {
@@ -29,11 +29,18 @@ public class KaeuterController {
 
         return kraeuterList;
     }
-
     @RequestMapping(
             method = RequestMethod.GET,
+            path="/kraut/{id}",
+            produces= MediaType.APPLICATION_JSON_VALUE)
+
+    public Kraeuter getKraut(@PathVariable("id") Integer id) {
+        return kraeuterRepository.getOne(id);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
             path="/kraut",
-            produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public Kraeuter updateKraeuter(@RequestBody Kraeuter kraeuter){
