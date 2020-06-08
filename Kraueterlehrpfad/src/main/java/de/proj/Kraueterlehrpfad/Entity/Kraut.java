@@ -1,34 +1,34 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import com.sun.istack.NotNull;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="kraeuter")
 
-public class Kraeuter {
+public class Kraut {
 
     //Gleiche Bezeichner wie in DB
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer kraeuter_ID;
-    @NotNull
+    private Integer kraeuter_id;
+    @NonNull
     private String name;
-    @NotNull
-    private String lateinischer_Name;
-    @NotNull
+    @NonNull
+    private String lateinischer_name;
+    @NonNull
     private String familie;
-    @NotNull
+    @NonNull
     private String wuchs;
-    @NotNull
+    @NonNull
     private Integer bluetenzeit;
-    @NotNull
+    @NonNull
     private String blueten;
-    @NotNull
+    @NonNull
     private String ausbreitung;
-    @NotNull
+    @NonNull
     private String vorkommen;
     private Integer samenreife;
     private Integer fruchtreife;
@@ -39,12 +39,38 @@ public class Kraeuter {
     private String heilanwendung;
     private String inhaltsstoffe;
 
-    public Integer getKraeuter_ID() {
-        return kraeuter_ID;
+
+
+    public Kraut(){
+
     }
 
-    public void setKraeuter_ID(Integer kraeuter_ID) {
-        this.kraeuter_ID = kraeuter_ID;
+    public Kraut(Integer kraeuter_id, String name, String lateinischer_name, String familie, String wuchs, Integer bluetenzeit, String blueten, String ausbreitung, String vorkommen, Integer samenreife, Integer fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe) {
+        this.kraeuter_id = kraeuter_id;
+        this.name = name;
+        this.lateinischer_name = lateinischer_name;
+        this.familie = familie;
+        this.wuchs = wuchs;
+        this.bluetenzeit = bluetenzeit;
+        this.blueten = blueten;
+        this.ausbreitung = ausbreitung;
+        this.vorkommen = vorkommen;
+        this.samenreife = samenreife;
+        this.fruchtreife = fruchtreife;
+        this.fruechte = fruechte;
+        this.bestaeuber = bestaeuber;
+        this.insektenarten = insektenarten;
+        this.schmetterlingsfutterpflanze = schmetterlingsfutterpflanze;
+        this.heilanwendung = heilanwendung;
+        this.inhaltsstoffe = inhaltsstoffe;
+    }
+
+    public Integer getKraeuter_id() {
+        return kraeuter_id;
+    }
+
+    public void setKraeuter_id(Integer kraeuter_id) {
+        this.kraeuter_id = kraeuter_id;
     }
 
     public String getName() {
@@ -55,12 +81,12 @@ public class Kraeuter {
         this.name = name;
     }
 
-    public String getLateinischer_Name() {
-        return lateinischer_Name;
+    public String getLateinischer_name() {
+        return lateinischer_name;
     }
 
-    public void setLateinischer_Name(String lateinischer_Name) {
-        this.lateinischer_Name = lateinischer_Name;
+    public void setLateinischer_name(String lateinischer_name) {
+        this.lateinischer_name = lateinischer_name;
     }
 
     public String getFamilie() {
@@ -174,31 +200,4 @@ public class Kraeuter {
     public void setInhaltsstoffe(String inhaltsstoffe) {
         this.inhaltsstoffe = inhaltsstoffe;
     }
-
-    public Kraeuter(){
-
-    }
-
-    public Kraeuter(Integer kraeuter_ID, String name, String lateinischer_Name, String familie, String wuchs, Integer bluetenzeit, String blueten, String ausbreitung, String vorkommen, Integer samenreife, Integer fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe) {
-        kraeuter_ID = kraeuter_ID;
-        name = name;
-        lateinischer_Name = lateinischer_Name;
-        familie = familie;
-        wuchs = wuchs;
-        bluetenzeit = bluetenzeit;
-        blueten = blueten;
-        ausbreitung = ausbreitung;
-        vorkommen = vorkommen;
-        samenreife = samenreife;
-        fruchtreife = fruchtreife;
-        fruechte = fruechte;
-        bestaeuber = bestaeuber;
-        insektenarten = insektenarten;
-        schmetterlingsfutterpflanze = schmetterlingsfutterpflanze;
-        heilanwendung = heilanwendung;
-        inhaltsstoffe = inhaltsstoffe;
-    }
-
-
-
 }
