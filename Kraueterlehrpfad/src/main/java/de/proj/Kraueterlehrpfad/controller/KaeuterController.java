@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -34,8 +35,8 @@ public class KaeuterController {
             path="/kraut/{id}",
             produces= MediaType.APPLICATION_JSON_VALUE)
 
-    public Kraeuter getKraut(@PathVariable("id") Integer id) {
-        return kraeuterRepository.getOne(id);
+    public Optional<Kraeuter> getKraut(@PathVariable("id") Integer id) {
+        return kraeuterRepository.findById(id);
     }
 
     @RequestMapping(
