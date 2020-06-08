@@ -32,13 +32,10 @@ public class KrautController {
             path = "/kraeuter/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public Kraut getKraut(@PathVariable("id") Integer id) {
+    public Optional<Kraut> getKraut(@PathVariable("id") Integer id) {
         System.out.println(krautRepository.existsById(id));
-        // umweg ueber optional<Kraut> Warum?
         // was passiert wenn kraut null ist?
-        Optional<Kraut> optionalKraut = krautRepository.findById(id);
-        Kraut kraut = optionalKraut.get();
-        return kraut;
+        return krautRepository.findById(id);
     }
 
     @RequestMapping(
