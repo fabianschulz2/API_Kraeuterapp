@@ -4,6 +4,7 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "rebe")
@@ -24,6 +25,9 @@ public class Rebe {
     private String bodenpflege;
     private String shop_link;
 
+
+    @OneToMany(mappedBy = "rebe")
+    private Set<QRCode> qrCodeSet;
 
 
     public Rebe(){

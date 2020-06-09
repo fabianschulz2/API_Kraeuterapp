@@ -1,8 +1,13 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
+import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="kraeuter")
@@ -39,7 +44,8 @@ public class Kraut {
     private String heilanwendung;
     private String inhaltsstoffe;
 
-
+    @OneToMany(mappedBy = "kraeuter")
+    private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
 
     public Kraut(){
@@ -64,6 +70,14 @@ public class Kraut {
         this.schmetterlingsfutterpflanze = schmetterlingsfutterpflanze;
         this.heilanwendung = heilanwendung;
         this.inhaltsstoffe = inhaltsstoffe;
+    }
+
+    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
+        return qrKraeuterLinkSet;
+    }
+
+    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
+        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
     }
 
     public Integer getKraeuter_id() {

@@ -1,15 +1,18 @@
 package de.proj.Kraueterlehrpfad.controller;
 
+import de.proj.Kraueterlehrpfad.Entity.Kraut;
 import de.proj.Kraueterlehrpfad.Entity.QRCode;
+import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
+import de.proj.Kraueterlehrpfad.Entity.Rebe;
 import de.proj.Kraueterlehrpfad.repository.QRCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class QRCodeController {
@@ -37,5 +40,31 @@ public class QRCodeController {
         return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
     }
 
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/qr-reben-link/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Rebe getQRCodeLinks(@PathVariable("id") Integer id){
+        QRCode qrCode = qrCodeRepository.findById(id).get();
+        Rebe rebe = qrCode.getRebe();
+        return rebe;
+
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/qr-kraeuter-links/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<Kraut> getQRKraeuterLinks(@PathVariable("id") Integer id){
+        QRCode qrCode = qrCodeRepository.findById(id).get();
+        Set<QRKraeuterLink> qrKraeuterLinkSet = qrCode.getQrKraeuterLinkSet();
+        Set<Kraut>  krautSet = new HashSet<Kraut>();
+        qrKraeuterLinkSet.forEach(qrKraeuterLink -> krautSet.add(qrKraeuterLink.getKraut()));
+//        return krautSet;
+        List<Kraut> krautList = new ArrayList<>(krautSet);
+        return krautList;
+    }
 
 }
