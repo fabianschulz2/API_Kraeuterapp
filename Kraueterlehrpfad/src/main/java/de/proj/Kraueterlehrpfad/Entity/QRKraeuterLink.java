@@ -14,32 +14,32 @@ public class QRKraeuterLink {
 
 
     @Id
-    Integer qr_id;
+    private Integer qr_id;
     @Id
-    Integer kraeuter_id;
+    private Integer kraeuter_id;
 
     public QRKraeuterLink() {
 
     }
 
-    public QRKraeuterLink(int qr_id, int kraeuter_id) {
+    public QRKraeuterLink(Integer qr_id, Integer kraeuter_id) {
         this.qr_id = qr_id;
         this.kraeuter_id = kraeuter_id;
     }
 
-    public int getQr_id() {
+    public Integer getQr_id() {
         return qr_id;
     }
 
-    public void setQr_id(int qr_id) {
+    public void setQr_id(Integer qr_id) {
         this.qr_id = qr_id;
     }
 
-    public int getKraeuter_id() {
+    public Integer getKraeuter_id() {
         return kraeuter_id;
     }
 
-    public void setKraeuter_id(int kraeuter_id) {
+    public void setKraeuter_id(Integer kraeuter_id) {
         this.kraeuter_id = kraeuter_id;
     }
 }

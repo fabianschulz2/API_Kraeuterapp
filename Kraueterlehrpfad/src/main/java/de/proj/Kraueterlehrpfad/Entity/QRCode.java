@@ -10,43 +10,44 @@ import javax.persistence.*;
 public class QRCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer qr_id;
+    private Integer qr_id;
     @NonNull
-    String identifier;
+    private String identifier;
     //foreign key
-    Integer reben_id;
+    private Integer reben_id;
 
     public QRCode() {
 
     }
 
-    public QRCode(int qr_id, String identifier, int reben_id) {
+    public QRCode(Integer qr_id, @NonNull String identifier, Integer reben_id) {
         this.qr_id = qr_id;
         this.identifier = identifier;
         this.reben_id = reben_id;
     }
 
-    public int getQr_id() {
+    public Integer getQr_id() {
         return qr_id;
     }
 
-    public void setQr_id(int qr_id) {
+    public void setQr_id(Integer qr_id) {
         this.qr_id = qr_id;
     }
 
+    @NonNull
     public String getIdentifier() {
         return identifier;
     }
 
-    public void setIdentifier(String identifier) {
+    public void setIdentifier(@NonNull String identifier) {
         this.identifier = identifier;
     }
 
-    public int getReben_id() {
+    public Integer getReben_id() {
         return reben_id;
     }
 
-    public void setReben_id(int reben_id) {
+    public void setReben_id(Integer reben_id) {
         this.reben_id = reben_id;
     }
 }
