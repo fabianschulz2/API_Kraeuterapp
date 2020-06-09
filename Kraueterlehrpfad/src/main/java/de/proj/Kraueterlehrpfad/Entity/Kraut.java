@@ -41,6 +41,7 @@ public class Kraut {
 
 
 
+
     public Kraut(){
 
     }
