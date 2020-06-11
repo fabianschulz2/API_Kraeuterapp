@@ -44,8 +44,8 @@ public class Kraut {
     private String heilanwendung;
     private String inhaltsstoffe;
 
-    @OneToMany(mappedBy = "kraeuter")
-    private Set<QRKraeuterLink> qrKraeuterLinkSet;
+//    @OneToMany(mappedBy = "kraeuter")
+//    private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
 
     public Kraut(){
@@ -72,13 +72,13 @@ public class Kraut {
         this.inhaltsstoffe = inhaltsstoffe;
     }
 
-    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
-        return qrKraeuterLinkSet;
-    }
-
-    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
-        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
-    }
+//    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
+//        return qrKraeuterLinkSet;
+//    }
+//
+//    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
+//        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+//    }
 
     public Integer getKraeuter_id() {
         return kraeuter_id;

@@ -1,8 +1,10 @@
 package de.proj.Kraueterlehrpfad.ID;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class QRKraeuterLinkID implements Serializable {
     private int qr_id;
     private int kraeuter_id;

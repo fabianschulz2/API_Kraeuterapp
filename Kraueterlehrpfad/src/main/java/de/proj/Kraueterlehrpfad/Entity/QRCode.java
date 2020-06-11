@@ -27,8 +27,8 @@ public class QRCode {
 
 
 
-    @OneToMany(mappedBy = "qr_code")
-    private Set<QRKraeuterLink> qrKraeuterLinkSet;
+//    @OneToMany(mappedBy = "qr_code")
+//    private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
     public QRCode() {
 
@@ -40,13 +40,13 @@ public class QRCode {
         //this.reben_id = reben_id;
     }
 
-    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
-        return qrKraeuterLinkSet;
-    }
-
-    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
-        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
-    }
+//    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
+//        return qrKraeuterLinkSet;
+//    }
+//
+//    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
+//        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+//    }
 
     public Rebe getRebe() {
         return rebe;

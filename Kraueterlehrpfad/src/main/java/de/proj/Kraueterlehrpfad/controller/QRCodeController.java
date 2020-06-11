@@ -40,9 +40,11 @@ public class QRCodeController {
         return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
     }
 
+
+    // Rebe zum QR-Code
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/qr-reben-link/{id}",
+            path = "/qr-reben-links/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public Rebe getQRCodeLinks(@PathVariable("id") Integer id){
@@ -52,6 +54,18 @@ public class QRCodeController {
 
     }
 
+    //alle qr-codes mit reben
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/qr-reben-links",
+            produces =  MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<QRCode> getQRCodesLinks(){
+        List<QRCode> qrCodeList = qrCodeRepository.findAll();
+        return qrCodeList;
+    }
+
+    //alle verlinkten kraeuter ausgeben, von bestimmten qr-code
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/qr-kraeuter-links/{id}",
@@ -59,12 +73,13 @@ public class QRCodeController {
     )
     public List<Kraut> getQRKraeuterLinks(@PathVariable("id") Integer id){
         QRCode qrCode = qrCodeRepository.findById(id).get();
-        Set<QRKraeuterLink> qrKraeuterLinkSet = qrCode.getQrKraeuterLinkSet();
-        Set<Kraut>  krautSet = new HashSet<Kraut>();
-        qrKraeuterLinkSet.forEach(qrKraeuterLink -> krautSet.add(qrKraeuterLink.getKraut()));
+//        Set<QRKraeuterLink> qrKraeuterLinkSet = qrCode.getQrKraeuterLinkSet();
+//        Set<Kraut>  krautSet = new HashSet<Kraut>();
+//        qrKraeuterLinkSet.forEach(qrKraeuterLink -> krautSet.add(qrKraeuterLink.getKraut()));
 //        return krautSet;
-        List<Kraut> krautList = new ArrayList<>(krautSet);
-        return krautList;
+//        List<Kraut> krautList = new ArrayList<>(krautSet);
+//        return krautList;
+        return null;
     }
 
 }
