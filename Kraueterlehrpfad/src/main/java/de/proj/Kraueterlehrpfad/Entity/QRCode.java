@@ -18,8 +18,6 @@ public class QRCode {
     Integer qr_id;
     @NonNull
     String identifier;
-    //foreign key
-    //Integer reben_id;
 
     @ManyToOne
     @JoinColumn(name = "reben_id")
@@ -27,8 +25,8 @@ public class QRCode {
 
 
 
-//    @OneToMany(mappedBy = "qr_code")
-//    private Set<QRKraeuterLink> qrKraeuterLinkSet;
+    @OneToMany(mappedBy = "qrCode")
+    private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
     public QRCode() {
 
@@ -40,13 +38,13 @@ public class QRCode {
         //this.reben_id = reben_id;
     }
 
-//    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
-//        return qrKraeuterLinkSet;
-//    }
-//
-//    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
-//        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
-//    }
+    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
+        return qrKraeuterLinkSet;
+    }
+
+    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
+        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+    }
 
     public Rebe getRebe() {
         return rebe;
@@ -72,11 +70,5 @@ public class QRCode {
         this.identifier = identifier;
     }
 
-//    public Integer getReben_id() {
-//        return reben_id;
-//    }
-//
-//    public void setReben_id(Integer reben_id) {
-//        this.reben_id = reben_id;
-//    }
+
 }

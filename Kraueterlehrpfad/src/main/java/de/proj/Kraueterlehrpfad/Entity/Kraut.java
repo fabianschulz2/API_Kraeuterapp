@@ -28,15 +28,15 @@ public class Kraut {
     @NonNull
     private String wuchs;
     @NonNull
-    private Integer bluetenzeit;
+    private String bluetenzeit;
     @NonNull
     private String blueten;
     @NonNull
     private String ausbreitung;
     @NonNull
     private String vorkommen;
-    private Integer samenreife;
-    private Integer fruchtreife;
+    private String samenreife;
+    private String fruchtreife;
     private String fruechte;
     private String bestaeuber;
     private String insektenarten;
@@ -44,15 +44,15 @@ public class Kraut {
     private String heilanwendung;
     private String inhaltsstoffe;
 
-//    @OneToMany(mappedBy = "kraeuter")
-//    private Set<QRKraeuterLink> qrKraeuterLinkSet;
+    @OneToMany(mappedBy = "kraut")
+    private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
 
     public Kraut(){
 
     }
 
-    public Kraut(Integer kraeuter_id, String name, String lateinischer_name, String familie, String wuchs, Integer bluetenzeit, String blueten, String ausbreitung, String vorkommen, Integer samenreife, Integer fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe) {
+    public Kraut(Integer kraeuter_id, @NonNull String name, @NonNull String lateinischer_name, @NonNull String familie, @NonNull String wuchs, @NonNull String bluetenzeit, @NonNull String blueten, @NonNull String ausbreitung, @NonNull String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, Set<QRKraeuterLink> qrKraeuterLinkSet) {
         this.kraeuter_id = kraeuter_id;
         this.name = name;
         this.lateinischer_name = lateinischer_name;
@@ -70,15 +70,41 @@ public class Kraut {
         this.schmetterlingsfutterpflanze = schmetterlingsfutterpflanze;
         this.heilanwendung = heilanwendung;
         this.inhaltsstoffe = inhaltsstoffe;
+        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
     }
 
-//    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
-//        return qrKraeuterLinkSet;
-//    }
-//
-//    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
-//        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
-//    }
+    @NonNull
+    public String getBluetenzeit() {
+        return bluetenzeit;
+    }
+
+    public void setBluetenzeit(@NonNull String bluetenzeit) {
+        this.bluetenzeit = bluetenzeit;
+    }
+
+    public String getSamenreife() {
+        return samenreife;
+    }
+
+    public void setSamenreife(String samenreife) {
+        this.samenreife = samenreife;
+    }
+
+    public String getFruchtreife() {
+        return fruchtreife;
+    }
+
+    public void setFruchtreife(String fruchtreife) {
+        this.fruchtreife = fruchtreife;
+    }
+
+    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
+       return qrKraeuterLinkSet;
+    }
+
+    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
+        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+    }
 
     public Integer getKraeuter_id() {
         return kraeuter_id;
@@ -120,13 +146,7 @@ public class Kraut {
         this.wuchs = wuchs;
     }
 
-    public Integer getBluetenzeit() {
-        return bluetenzeit;
-    }
 
-    public void setBluetenzeit(Integer bluetenzeit) {
-        this.bluetenzeit = bluetenzeit;
-    }
 
     public String getBlueten() {
         return blueten;
@@ -152,21 +172,6 @@ public class Kraut {
         this.vorkommen = vorkommen;
     }
 
-    public Integer getSamenreife() {
-        return samenreife;
-    }
-
-    public void setSamenreife(Integer samenreife) {
-        this.samenreife = samenreife;
-    }
-
-    public Integer getFruchtreife() {
-        return fruchtreife;
-    }
-
-    public void setFruchtreife(Integer fruchtreife) {
-        this.fruchtreife = fruchtreife;
-    }
 
     public String getFruechte() {
         return fruechte;

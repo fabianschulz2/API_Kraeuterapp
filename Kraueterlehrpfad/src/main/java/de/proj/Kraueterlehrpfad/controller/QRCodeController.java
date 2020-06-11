@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -71,15 +70,15 @@ public class QRCodeController {
             path = "/qr-kraeuter-links/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Kraut> getQRKraeuterLinks(@PathVariable("id") Integer id){
+    public Set<QRKraeuterLink> getQRKraeuterLinks(@PathVariable("id") Integer id){
         QRCode qrCode = qrCodeRepository.findById(id).get();
-//        Set<QRKraeuterLink> qrKraeuterLinkSet = qrCode.getQrKraeuterLinkSet();
-//        Set<Kraut>  krautSet = new HashSet<Kraut>();
-//        qrKraeuterLinkSet.forEach(qrKraeuterLink -> krautSet.add(qrKraeuterLink.getKraut()));
-//        return krautSet;
+        Set<QRKraeuterLink> qrKraeuterLinkSet = qrCode.getQrKraeuterLinkSet();
+        Set<Kraut>  krautSet = new HashSet<Kraut>();
+        qrKraeuterLinkSet.forEach(qrKraeuterLink -> krautSet.add(qrKraeuterLink.getKraut()));
+        return qrKraeuterLinkSet;
 //        List<Kraut> krautList = new ArrayList<>(krautSet);
 //        return krautList;
-        return null;
+//        return null;
     }
 
 }
