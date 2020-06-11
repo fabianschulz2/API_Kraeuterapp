@@ -10,6 +10,7 @@ import javax.persistence.*;
 @IdClass(QRKraeuterLinkID.class)
 
 public class QRKraeuterLink {
+<<<<<<< Updated upstream
 
 
 //   @Id
@@ -22,6 +23,16 @@ public class QRKraeuterLink {
     private QRCode qrCode;
 
     @ManyToOne
+=======
+    @EmbeddedId
+    private QRKraeuterLinkID qrKraeuterLinkID;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="qr_id")
+    private QRCode qrCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+>>>>>>> Stashed changes
     @JoinColumn(name = "kraeuter_id")
     private Kraut kraut;
 
@@ -29,6 +40,15 @@ public class QRKraeuterLink {
 
     }
 
+<<<<<<< Updated upstream
+=======
+    public QRKraeuterLink(QRKraeuterLinkID qrKraeuterLinkID, QRCode qrCode, Kraut kraut) {
+        this.qrKraeuterLinkID = qrKraeuterLinkID;
+        this.qrCode = qrCode;
+        this.kraut = kraut;
+    }
+
+>>>>>>> Stashed changes
     public QRCode getQrCode() {
         return qrCode;
     }
@@ -44,6 +64,7 @@ public class QRKraeuterLink {
     public void setKraut(Kraut kraut) {
         this.kraut = kraut;
     }
+<<<<<<< Updated upstream
 //      public QRKraeuterLink(Integer qr_id, Integer kraeuter_id) {
 //        this.qr_id = qr_id;
 //        this.kraeuter_id = kraeuter_id;
@@ -64,4 +85,14 @@ public class QRKraeuterLink {
 //    public void setKraeuter_id(Integer kraeuter_id) {
 //        this.kraeuter_id = kraeuter_id;
 //    }
+=======
+
+    public QRKraeuterLinkID getQrKraeuterLinkID() {
+        return qrKraeuterLinkID;
+    }
+
+    public void setQrKraeuterLinkID(QRKraeuterLinkID qrKraeuterLinkID) {
+        this.qrKraeuterLinkID = qrKraeuterLinkID;
+    }
+>>>>>>> Stashed changes
 }

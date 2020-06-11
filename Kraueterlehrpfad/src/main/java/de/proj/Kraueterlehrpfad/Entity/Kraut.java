@@ -18,33 +18,46 @@ public class Kraut {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="kraeuter_id")
     private Integer kraeuter_id;
-    @NonNull
+    @Column(name = "name")
     private String name;
-    @NonNull
+    @Column(name = "lateinischer_name")
     private String lateinischer_name;
-    @NonNull
+    @Column(name = "familie")
     private String familie;
-    @NonNull
+    @Column(name = "wuchs")
     private String wuchs;
-    @NonNull
-    private Integer bluetenzeit;
-    @NonNull
+    @Column(name = "bluetenzeit")
+    private String bluetenzeit;
+    @Column(name = "blueten")
     private String blueten;
-    @NonNull
+    @Column(name = "ausbreitung")
     private String ausbreitung;
-    @NonNull
+    @Column(name = "vorkommen")
     private String vorkommen;
-    private Integer samenreife;
-    private Integer fruchtreife;
+    @Column(name = "samenreife")
+    private String samenreife;
+    @Column(name = "fruchtreife")
+    private String fruchtreife;
+    @Column(name = "fruechte")
     private String fruechte;
+    @Column(name = "bestaeuber")
     private String bestaeuber;
+    @Column(name = "insektenarten")
     private String insektenarten;
+    @Column(name = "schmetterlingsfutterpflanze")
     private String schmetterlingsfutterpflanze;
+    @Column(name = "heilanwendung")
     private String heilanwendung;
+    @Column(name = "inhaltsstoffe")
     private String inhaltsstoffe;
 
+<<<<<<< Updated upstream
     @OneToMany(mappedBy = "kraeuter")
+=======
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "kraut")
+>>>>>>> Stashed changes
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
 
@@ -52,7 +65,7 @@ public class Kraut {
 
     }
 
-    public Kraut(Integer kraeuter_id, String name, String lateinischer_name, String familie, String wuchs, Integer bluetenzeit, String blueten, String ausbreitung, String vorkommen, Integer samenreife, Integer fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe) {
+    public Kraut(Integer kraeuter_id, String name, String lateinischer_name, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe) {
         this.kraeuter_id = kraeuter_id;
         this.name = name;
         this.lateinischer_name = lateinischer_name;
@@ -120,11 +133,11 @@ public class Kraut {
         this.wuchs = wuchs;
     }
 
-    public Integer getBluetenzeit() {
+    public String getBluetenzeit() {
         return bluetenzeit;
     }
 
-    public void setBluetenzeit(Integer bluetenzeit) {
+    public void setBluetenzeit(String bluetenzeit) {
         this.bluetenzeit = bluetenzeit;
     }
 
@@ -152,19 +165,19 @@ public class Kraut {
         this.vorkommen = vorkommen;
     }
 
-    public Integer getSamenreife() {
+    public String getSamenreife() {
         return samenreife;
     }
 
-    public void setSamenreife(Integer samenreife) {
+    public void setSamenreife(String samenreife) {
         this.samenreife = samenreife;
     }
 
-    public Integer getFruchtreife() {
+    public String getFruchtreife() {
         return fruchtreife;
     }
 
-    public void setFruchtreife(Integer fruchtreife) {
+    public void setFruchtreife(String fruchtreife) {
         this.fruchtreife = fruchtreife;
     }
 

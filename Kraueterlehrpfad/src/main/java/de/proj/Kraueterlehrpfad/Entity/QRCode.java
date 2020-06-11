@@ -1,12 +1,7 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import org.springframework.http.MediaType;
-import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,11 +10,10 @@ import java.util.Set;
 public class QRCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="qr_id")
     Integer qr_id;
-    @NonNull
+    @Column(name="identifier")
     String identifier;
-    //foreign key
-    //Integer reben_id;
 
     @ManyToOne
     @JoinColumn(name = "reben_id")
@@ -27,17 +21,20 @@ public class QRCode {
 
 
 
+<<<<<<< Updated upstream
     @OneToMany(mappedBy = "qr_code")
+=======
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "qrCode")
+>>>>>>> Stashed changes
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
     public QRCode() {
 
     }
 
-    public QRCode(Integer qr_id, String identifier, Integer reben_id) {
+    public QRCode(Integer qr_id, String identifier) {
         this.qr_id = qr_id;
         this.identifier = identifier;
-        //this.reben_id = reben_id;
     }
 
     public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
@@ -72,11 +69,4 @@ public class QRCode {
         this.identifier = identifier;
     }
 
-//    public Integer getReben_id() {
-//        return reben_id;
-//    }
-//
-//    public void setReben_id(Integer reben_id) {
-//        this.reben_id = reben_id;
-//    }
 }

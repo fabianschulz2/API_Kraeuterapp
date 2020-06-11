@@ -12,17 +12,21 @@ public class Rebe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="reben_id")
     private Integer reben_id;
-
-    @NonNull
+    @Column(name="weinlage")
     private String weinlage;
-    @NonNull
+    @Column(name="rebsorte")
     private String rebsorte;
-    @NonNull
+    @Column(name="pflanzjahr")
     private Date pflanzjahr;
+    @Column(name="sorteneigenschaft")
     private String sorteneigenschaft;
+    @Column(name="wissenswertes")
     private String wissenswertes;
+    @Column(name="bodenpflege")
     private String bodenpflege;
+    @Column(name="shop_link")
     private String shop_link;
 
 
