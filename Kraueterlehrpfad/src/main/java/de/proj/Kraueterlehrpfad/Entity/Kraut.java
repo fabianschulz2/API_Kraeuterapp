@@ -1,5 +1,9 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="kraeuter")
+@Table(name = "kraeuter")
 
 public class Kraut {
 
@@ -45,10 +49,11 @@ public class Kraut {
     private String inhaltsstoffe;
 
     @OneToMany(mappedBy = "kraut")
+    @JsonBackReference
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
 
-    public Kraut(){
+    public Kraut() {
 
     }
 
@@ -99,7 +104,7 @@ public class Kraut {
     }
 
     public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
-       return qrKraeuterLinkSet;
+        return qrKraeuterLinkSet;
     }
 
     public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
@@ -145,7 +150,6 @@ public class Kraut {
     public void setWuchs(String wuchs) {
         this.wuchs = wuchs;
     }
-
 
 
     public String getBlueten() {

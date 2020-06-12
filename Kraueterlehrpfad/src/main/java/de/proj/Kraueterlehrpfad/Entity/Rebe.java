@@ -30,7 +30,7 @@ public class Rebe {
     private Set<QRCode> qrCodeSet;
 
 
-    public Rebe(){
+    public Rebe() {
 
     }
 

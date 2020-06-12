@@ -1,5 +1,8 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +27,8 @@ public class QRCode {
     private Rebe rebe;
 
 
-
     @OneToMany(mappedBy = "qrCode")
+    @JsonManagedReference
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
     public QRCode() {
@@ -54,7 +57,7 @@ public class QRCode {
         this.rebe = rebe;
     }
 
-    public Integer  getQr_id() {
+    public Integer getQr_id() {
         return qr_id;
     }
 

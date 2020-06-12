@@ -1,6 +1,10 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.proj.Kraueterlehrpfad.ID.QRKraeuterLinkID;
 
 import javax.persistence.*;
@@ -14,14 +18,16 @@ public class QRKraeuterLink {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer qr_link_id;
 
-    //JoinColumns?
-    @JoinColumn(name="qr_id_fk")
+    @JoinColumn(name = "qr_id_fk")
     @ManyToOne
+    @JsonBackReference
+
     private QRCode qrCode;
 
 
     @JoinColumn(name = "kraeuter_id_fk")
     @ManyToOne
+    @JsonManagedReference
     private Kraut kraut;
 
     public QRKraeuterLink() {
@@ -48,7 +54,7 @@ public class QRKraeuterLink {
 
     public void setKraut(Kraut kraut) {
         this.kraut = kraut;
-   }
+    }
 
     public Integer getQr_link_id() {
         return qr_link_id;
