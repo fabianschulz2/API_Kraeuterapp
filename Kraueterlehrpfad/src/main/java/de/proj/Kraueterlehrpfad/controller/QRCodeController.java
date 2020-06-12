@@ -14,24 +14,46 @@ public class QRCodeController {
     @Autowired
     QRCodeRepository qrCodeRepository;
 
+//    @RequestMapping(
+//            method = RequestMethod.GET,
+//            path = "/qrcodes",
+//            produces = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public List<QRCode> getQRCodes() {
+//        List<QRCode> qrCodeList = qrCodeRepository.findAll();
+//        return qrCodeList;
+//    }
+//
+//    @RequestMapping(
+//            method = RequestMethod.POST,
+//            path = "/qrcodes",
+//            produces = MediaType.APPLICATION_JSON_VALUE,
+//            consumes = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public  QRCode saveQRCode(@RequestBody QRCode qrCode){
+//        return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
+//    }
+
+    //alle qr codes mit allen Verlinkungen
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/qrcodes",
-            produces = MediaType.APPLICATION_JSON_VALUE
+            path = "/qr-kraeuter-rebe-links",
+            produces =  MediaType.APPLICATION_JSON_VALUE
     )
-    public List<QRCode> getQRCodes() {
+    public List<QRCode> getQRCodesLinks(){
         List<QRCode> qrCodeList = qrCodeRepository.findAll();
         return qrCodeList;
     }
 
+    //ein qr code by id mit allen Verlinkungen
     @RequestMapping(
-            method = RequestMethod.POST,
-            path = "/qrcodes",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE
+            method = RequestMethod.GET,
+            path = "/qr-kraeuter-rebe-links/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public  QRCode saveQRCode(@RequestBody QRCode qrCode){
-        return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
+    public QRCode getQRKraeuterLinks(@PathVariable("id") Integer id){
+        QRCode qrCode = qrCodeRepository.findById(id).get();
+        return qrCode;
     }
     @RequestMapping(
             method = RequestMethod.DELETE,
@@ -40,6 +62,5 @@ public class QRCodeController {
     public void deleteKraut(@PathVariable("id") Integer id) {
         qrCodeRepository.deleteById(id);
     }
-
 
 }

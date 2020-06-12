@@ -1,10 +1,15 @@
 package de.proj.Kraueterlehrpfad.ID;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class QRKraeuterLinkID implements Serializable {
+    @Column( name="qr_id" )
     private int qr_id;
+    @Column( name= "kraeuter_id" )
     private int kraeuter_id;
 
     public QRKraeuterLinkID(){

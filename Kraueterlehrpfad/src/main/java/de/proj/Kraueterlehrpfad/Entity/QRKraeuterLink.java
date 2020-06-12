@@ -1,45 +1,66 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.proj.Kraueterlehrpfad.ID.QRKraeuterLinkID;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "qr_kraut_link")
-@IdClass(QRKraeuterLinkID.class)
 
 public class QRKraeuterLink {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer qr_link_id;
 
-    @Id
-    private Integer qr_id;
-    @Id
-    private Integer kraeuter_id;
+    @JoinColumn(name = "qr_id_fk")
+    @ManyToOne
+    @JsonBackReference
+
+    private QRCode qrCode;
+
+
+    @JoinColumn(name = "kraeuter_id_fk")
+    @ManyToOne
+    @JsonManagedReference
+    private Kraut kraut;
 
     public QRKraeuterLink() {
 
     }
 
-    public QRKraeuterLink(Integer qr_id, Integer kraeuter_id) {
-        this.qr_id = qr_id;
-        this.kraeuter_id = kraeuter_id;
+    public QRKraeuterLink(Integer qr_link_id, QRCode qrCode, Kraut kraut) {
+        this.qr_link_id = qr_link_id;
+        this.qrCode = qrCode;
+        this.kraut = kraut;
     }
 
-    public Integer getQr_id() {
-        return qr_id;
+    public QRCode getQrCode() {
+        return qrCode;
     }
 
-    public void setQr_id(Integer qr_id) {
-        this.qr_id = qr_id;
+    public void setQrCode(QRCode qrCode) {
+        this.qrCode = qrCode;
     }
 
-    public Integer getKraeuter_id() {
-        return kraeuter_id;
+    public Kraut getKraut() {
+        return kraut;
     }
 
-    public void setKraeuter_id(Integer kraeuter_id) {
-        this.kraeuter_id = kraeuter_id;
+    public void setKraut(Kraut kraut) {
+        this.kraut = kraut;
+    }
+
+    public Integer getQr_link_id() {
+        return qr_link_id;
+    }
+
+    public void setQr_link_id(Integer qr_link_id) {
+        this.qr_link_id = qr_link_id;
     }
 }

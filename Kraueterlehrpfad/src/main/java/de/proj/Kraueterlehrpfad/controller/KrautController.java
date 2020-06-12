@@ -39,6 +39,16 @@ public class KrautController {
     }
 
     @RequestMapping(
+            method = RequestMethod.POST,
+            path = "/kraeuter",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Kraut saveKraut(@RequestBody Kraut kraut) {
+        return krautRepository.save(kraut);
+    }
+
+    @RequestMapping(
             method = RequestMethod.PUT,
             path = "/kraeuter",
             consumes = MediaType.APPLICATION_JSON_VALUE
@@ -62,16 +72,6 @@ public class KrautController {
         updateKraeuter.setVorkommen(kraut.getVorkommen());
         updateKraeuter.setWuchs(kraut.getWuchs());
         return krautRepository.saveAndFlush(updateKraeuter);
-    }
-
-    @RequestMapping(
-            method = RequestMethod.POST,
-            path = "/kraeuter",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE
-    )
-    public Kraut saveKraut(@RequestBody Kraut kraut) {
-        return krautRepository.save(kraut);
     }
 
     @RequestMapping(
