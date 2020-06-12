@@ -10,7 +10,7 @@ import de.proj.Kraueterlehrpfad.ID.QRKraeuterLinkID;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "qr_kraut_link2")
+@Table(name = "qr_kraut_link")
 
 public class QRKraeuterLink {
 
