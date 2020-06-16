@@ -47,6 +47,7 @@ public class Kraut {
     private String schmetterlingsfutterpflanze;
     private String heilanwendung;
     private String inhaltsstoffe;
+    private String verwendung_in_kueche;
 
     @OneToMany(mappedBy = "kraut")
     @JsonBackReference
@@ -57,7 +58,7 @@ public class Kraut {
 
     }
 
-    public Kraut(Integer kraeuter_id, @NonNull String name, @NonNull String lateinischer_name, @NonNull String familie, @NonNull String wuchs, @NonNull String bluetenzeit, @NonNull String blueten, @NonNull String ausbreitung, @NonNull String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, Set<QRKraeuterLink> qrKraeuterLinkSet) {
+    public Kraut(Integer kraeuter_id, @NonNull String name, @NonNull String lateinischer_name, @NonNull String familie, @NonNull String wuchs, @NonNull String bluetenzeit, @NonNull String blueten, @NonNull String ausbreitung, @NonNull String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendung_in_kueche, Set<QRKraeuterLink> qrKraeuterLinkSet) {
         this.kraeuter_id = kraeuter_id;
         this.name = name;
         this.lateinischer_name = lateinischer_name;
@@ -75,7 +76,16 @@ public class Kraut {
         this.schmetterlingsfutterpflanze = schmetterlingsfutterpflanze;
         this.heilanwendung = heilanwendung;
         this.inhaltsstoffe = inhaltsstoffe;
+        this.verwendung_in_kueche = verwendung_in_kueche;
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+    }
+
+    public String getVerwendung_in_kueche() {
+        return verwendung_in_kueche;
+    }
+
+    public void setVerwendung_in_kueche(String verwendung_in_kueche) {
+        this.verwendung_in_kueche = verwendung_in_kueche;
     }
 
     @NonNull

@@ -71,6 +71,7 @@ public class KrautController {
         updateKraeuter.setSchmetterlingsfutterpflanze(kraut.getSchmetterlingsfutterpflanze());
         updateKraeuter.setVorkommen(kraut.getVorkommen());
         updateKraeuter.setWuchs(kraut.getWuchs());
+        updateKraeuter.setVerwendung_in_kueche(kraut.getVerwendung_in_kueche());
         return krautRepository.saveAndFlush(updateKraeuter);
     }
 
