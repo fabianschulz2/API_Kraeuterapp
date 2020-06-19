@@ -15,7 +15,8 @@ public class Routs {
     @NonNull
     private String name;
 
-    @OneToMany(mappedBy = "routs")
+    //diese annotation wird benoetigt um vor loeschen der route alle punkte zu loeschen
+    @OneToMany(mappedBy = "routs", orphanRemoval = true, cascade = CascadeType.PERSIST)
     private Set<Point> pointSet;
 
     public Routs(Integer rout_id, @NonNull String name, Set<Point> pointSet) {

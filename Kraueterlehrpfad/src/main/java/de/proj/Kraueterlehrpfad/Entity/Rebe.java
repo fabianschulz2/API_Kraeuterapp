@@ -45,6 +45,14 @@ public class Rebe {
         this.shop_link = shop_link;
     }
 
+    public Set<QRCode> getQrCodeSet() {
+        return qrCodeSet;
+    }
+
+    public void setQrCodeSet(Set<QRCode> qrCodeSet) {
+        this.qrCodeSet = qrCodeSet;
+    }
+
     public Integer getReben_id() {
         return reben_id;
     }
