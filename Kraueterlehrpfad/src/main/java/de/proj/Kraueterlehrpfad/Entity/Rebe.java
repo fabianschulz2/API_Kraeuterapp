@@ -1,7 +1,5 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import org.springframework.lang.NonNull;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -13,12 +11,8 @@ public class Rebe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reben_id;
-
-    @NonNull
     private String weinlage;
-    @NonNull
     private String rebsorte;
-    @NonNull
     private Date pflanzjahr;
     private String sorteneigenschaft;
     private String wissenswertes;
@@ -34,7 +28,7 @@ public class Rebe {
 
     }
 
-    public Rebe(Integer reben_id, @NonNull String weinlage, @NonNull String rebsorte, @NonNull Date pflanzjahr, String sorteneigenschaft, String wissenswertes, String bodenpflege, String shop_link) {
+    public Rebe(Integer reben_id, String weinlage, String rebsorte, Date pflanzjahr, String sorteneigenschaft, String wissenswertes, String bodenpflege, String shop_link) {
         this.reben_id = reben_id;
         this.weinlage = weinlage;
         this.rebsorte = rebsorte;
@@ -61,30 +55,27 @@ public class Rebe {
         this.reben_id = reben_id;
     }
 
-    @NonNull
     public String getWeinlage() {
         return weinlage;
     }
 
-    public void setWeinlage(@NonNull String weinlage) {
+    public void setWeinlage(String weinlage) {
         this.weinlage = weinlage;
     }
 
-    @NonNull
     public String getRebsorte() {
         return rebsorte;
     }
 
-    public void setRebsorte(@NonNull String rebsorte) {
+    public void setRebsorte(String rebsorte) {
         this.rebsorte = rebsorte;
     }
 
-    @NonNull
     public Date getPflanzjahr() {
         return pflanzjahr;
     }
 
-    public void setPflanzjahr(@NonNull Date pflanzjahr) {
+    public void setPflanzjahr(Date pflanzjahr) {
         this.pflanzjahr = pflanzjahr;
     }
 

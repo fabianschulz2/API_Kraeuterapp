@@ -1,6 +1,5 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 
@@ -11,13 +10,12 @@ public class QRCodeOhneLinks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer qr_id;
     Integer reben_id;
-    @NonNull
     String identifier;
 
     public QRCodeOhneLinks() {
     }
 
-    public QRCodeOhneLinks(Integer qr_id, Integer reben_id, @NonNull String identifier) {
+    public QRCodeOhneLinks(Integer qr_id, Integer reben_id, String identifier) {
         this.qr_id = qr_id;
         this.reben_id = reben_id;
         this.identifier = identifier;
@@ -39,12 +37,11 @@ public class QRCodeOhneLinks {
         this.qr_id = qr_id;
     }
 
-    @NonNull
     public String getIdentifier() {
         return identifier;
     }
 
-    public void setIdentifier(@NonNull String identifier) {
+    public void setIdentifier(String identifier) {
         this.identifier = identifier;
     }
 

@@ -4,6 +4,7 @@ import de.proj.Kraueterlehrpfad.Entity.Route;
 import de.proj.Kraueterlehrpfad.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +24,12 @@ public class RouteController {
     public List<Route> getRouts(){
         List<Route> routeList = routeRepository.findAll();
         return routeList;
+    }
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            path = "/routen/{id}"
+    )
+    public void deleteKraut(@PathVariable("id") Integer id) {
+        routeRepository.deleteById(id);
     }
 }

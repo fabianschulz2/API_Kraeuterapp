@@ -23,21 +23,13 @@ public class Kraut {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer kraeuter_id;
-    @NonNull
     private String name;
-    @NonNull
     private String lateinischer_name;
-    @NonNull
     private String familie;
-    @NonNull
     private String wuchs;
-    @NonNull
     private String bluetenzeit;
-    @NonNull
     private String blueten;
-    @NonNull
     private String ausbreitung;
-    @NonNull
     private String vorkommen;
     private String samenreife;
     private String fruchtreife;
@@ -58,7 +50,7 @@ public class Kraut {
 
     }
 
-    public Kraut(Integer kraeuter_id, @NonNull String name, @NonNull String lateinischer_name, @NonNull String familie, @NonNull String wuchs, @NonNull String bluetenzeit, @NonNull String blueten, @NonNull String ausbreitung, @NonNull String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendung_in_kueche, Set<QRKraeuterLink> qrKraeuterLinkSet) {
+    public Kraut(Integer kraeuter_id, String name,  String lateinischer_name, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendung_in_kueche, Set<QRKraeuterLink> qrKraeuterLinkSet) {
         this.kraeuter_id = kraeuter_id;
         this.name = name;
         this.lateinischer_name = lateinischer_name;
@@ -88,12 +80,11 @@ public class Kraut {
         this.verwendung_in_kueche = verwendung_in_kueche;
     }
 
-    @NonNull
     public String getBluetenzeit() {
         return bluetenzeit;
     }
 
-    public void setBluetenzeit(@NonNull String bluetenzeit) {
+    public void setBluetenzeit(String bluetenzeit) {
         this.bluetenzeit = bluetenzeit;
     }
 

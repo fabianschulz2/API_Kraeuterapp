@@ -1,6 +1,5 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -16,7 +15,8 @@ public class Route {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "route")
+    //diese annotation wird benoetigt um vor loeschen der route alle punkte zu loeschen
+    @OneToMany(mappedBy = "route", orphanRemoval = true, cascade = CascadeType.PERSIST)
     @JsonManagedReference
     private Set<Point> pointSet;
 

@@ -1,12 +1,6 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.springframework.http.MediaType;
-import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,7 +13,6 @@ public class QRCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer qr_id;
-    @NonNull
     String identifier;
 
     @ManyToOne
@@ -65,12 +58,11 @@ public class QRCode {
         this.qr_id = qr_id;
     }
 
-    @NonNull
     public String getIdentifier() {
         return identifier;
     }
 
-    public void setIdentifier(@NonNull String identifier) {
+    public void setIdentifier(String identifier) {
         this.identifier = identifier;
     }
 
