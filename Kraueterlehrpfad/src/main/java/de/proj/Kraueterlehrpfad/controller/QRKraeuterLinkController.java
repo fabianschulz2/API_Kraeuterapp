@@ -27,5 +27,12 @@ public class QRKraeuterLinkController {
         return linkList;
     }
 
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            path = "/links/{id}"
+    )
+    public void deleteKraut(@PathVariable("id") Integer id) {
+        qrKraeuterLinkRepository.deleteById(id);
+    }
 
 }

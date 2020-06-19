@@ -34,4 +34,13 @@ public class QRCodeOhneLinksController {
         return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
     }
 
+//    @RequestMapping(
+//            method = RequestMethod.DELETE,
+//            path = "/qrcodes/{id}"
+//    )
+//    public void deleteKraut(@PathVariable("id") Integer id) {
+//        qrCodeRepository.deleteById(id);
+//    }
+
+
 }

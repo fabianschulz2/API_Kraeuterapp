@@ -14,27 +14,6 @@ public class QRCodeController {
     @Autowired
     QRCodeRepository qrCodeRepository;
 
-//    @RequestMapping(
-//            method = RequestMethod.GET,
-//            path = "/qrcodes",
-//            produces = MediaType.APPLICATION_JSON_VALUE
-//    )
-//    public List<QRCode> getQRCodes() {
-//        List<QRCode> qrCodeList = qrCodeRepository.findAll();
-//        return qrCodeList;
-//    }
-//
-//    @RequestMapping(
-//            method = RequestMethod.POST,
-//            path = "/qrcodes",
-//            produces = MediaType.APPLICATION_JSON_VALUE,
-//            consumes = MediaType.APPLICATION_JSON_VALUE
-//    )
-//    public  QRCode saveQRCode(@RequestBody QRCode qrCode){
-//        return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
-//    }
-
-    //alle qr codes mit allen Verlinkungen
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/qr-kraeuter-rebe-links",
