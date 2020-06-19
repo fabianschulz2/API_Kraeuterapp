@@ -33,4 +33,14 @@ public class RebeController {
         rebeRepository.deleteById(id);
     }
 
+    //Gebe alle Reben zurueck
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/reben",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<Rebe> getReben(){
+        List<Rebe> rebeList = rebeRepository.findAll();
+        return rebeList;
+    }
 }

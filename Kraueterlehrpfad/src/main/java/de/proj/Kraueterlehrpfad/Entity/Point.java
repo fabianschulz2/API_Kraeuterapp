@@ -1,6 +1,7 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
 import org.springframework.lang.NonNull;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -9,69 +10,58 @@ import javax.persistence.*;
 public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer point_id;
-    @NonNull
+    @Column(name = "point_id")
+    private Integer pointId;
+    @Column(name = "longitude")
     private Integer longitude;
-    @NonNull
+    @Column(name = "latitude")
     private Integer latitude;
-    @NonNull
-    private Integer rout_id;
 
+    @JoinColumn(name = "rout_id")
     @ManyToOne
-    @JoinColumn(name ="rout_id", insertable = false, updatable = false)
-    private Routs routs;
+    @JsonBackReference
+    private Route route;
 
-    public Point() {
+    public Point(){
+
     }
 
-    public Point(Integer point_id, @NonNull Integer longitude, @NonNull Integer latitude, @NonNull Integer rout_id, Routs routs) {
-        this.point_id = point_id;
+    public Point(Integer pointId, Integer longitude, Integer latitude, Route route) {
+        this.pointId = pointId;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.rout_id = rout_id;
-        this.routs = routs;
+        this.route = route;
     }
 
-    public Integer getPoint_id() {
-        return point_id;
+    public Integer getPointId() {
+        return pointId;
     }
 
-    public void setPoint_id(Integer point_id) {
-        this.point_id = point_id;
+    public void setPointId(Integer pointId) {
+        this.pointId = pointId;
     }
 
-    @NonNull
     public Integer getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(@NonNull Integer longitude) {
+    public void setLongitude(Integer longitude) {
         this.longitude = longitude;
     }
 
-    @NonNull
     public Integer getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(@NonNull Integer latitude) {
+    public void setLatitude(Integer latitude) {
         this.latitude = latitude;
     }
 
-    @NonNull
-    public Integer getRout_id() {
-        return rout_id;
+    public Route getRoute() {
+        return route;
     }
 
-    public void setRout_id(@NonNull Integer rout_id) {
-        this.rout_id = rout_id;
-    }
-
-    public Routs getRouts() {
-        return routs;
-    }
-
-    public void setRout(Routs routs) {
-        this.routs = routs;
+    public void setRoute(Route route) {
+        this.route = route;
     }
 }
