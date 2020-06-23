@@ -34,6 +34,18 @@ public class QRCodeController {
         QRCode qrCode = qrCodeRepository.findById(id).get();
         return qrCode;
     }
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            path = "/qr-kraeuter-rebe-links",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public QRCode postQrCode(@RequestBody QRCode qrCode){
+        QRCode returnQrCode = qrCodeRepository.save(qrCode);
+        return returnQrCode;
+    }
+
     @RequestMapping(
             method = RequestMethod.DELETE,
             path = "/qrcodes/{id}"

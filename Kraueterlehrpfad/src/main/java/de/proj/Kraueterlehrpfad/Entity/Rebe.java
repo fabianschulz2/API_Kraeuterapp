@@ -1,5 +1,8 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -21,6 +24,7 @@ public class Rebe {
 
 
     @OneToMany(mappedBy = "rebe")
+    @JsonBackReference
     private Set<QRCode> qrCodeSet;
 
 

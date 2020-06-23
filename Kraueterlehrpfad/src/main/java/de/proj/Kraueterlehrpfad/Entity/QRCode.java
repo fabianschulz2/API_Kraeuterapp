@@ -3,19 +3,25 @@ package de.proj.Kraueterlehrpfad.Entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "qr_code")
 
 public class QRCode {
+    //verlinkungen ohne Daten
+//    @Column(name="reben_id", updatable = false, insertable=false)
+//    private int rebenId;
+
+    private String identifier;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer qr_id;
-    String identifier;
 
+    //Verlinkungen mit Daten
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "reben_id")
     private Rebe rebe;
 
@@ -28,10 +34,10 @@ public class QRCode {
 
     }
 
-    public QRCode(Integer qr_id, String identifier, Integer reben_id) {
+    public QRCode(Integer qr_id, String identifier/*, Integer rebenId*/) {
         this.qr_id = qr_id;
         this.identifier = identifier;
-        //this.reben_id = reben_id;
+//        this.rebenId = rebenId;
     }
 
     public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
@@ -41,6 +47,14 @@ public class QRCode {
     public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
     }
+
+//    public int getRebenId() {
+//        return rebenId;
+//    }
+//
+//    public void setRebenId(int rebenId) {
+//        this.rebenId = rebenId;
+//    }
 
     public Rebe getRebe() {
         return rebe;
