@@ -16,6 +16,7 @@ public class QRCode {
     String identifier;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "reben_id")
     private Rebe rebe;
 
