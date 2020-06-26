@@ -13,9 +13,9 @@ public class Point {
     @Column(name = "point_id")
     private Integer pointId;
     @Column(name = "longitude")
-    private Integer longitude;
+    private Double longitude;
     @Column(name = "latitude")
-    private Integer latitude;
+    private Double   latitude;
 
     @JoinColumn(name = "rout_id")
     @ManyToOne
@@ -26,7 +26,7 @@ public class Point {
 
     }
 
-    public Point(Integer pointId, Integer longitude, Integer latitude, Route route) {
+    public Point(Integer pointId, Double longitude, Double latitude, Route route) {
         this.pointId = pointId;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -41,19 +41,19 @@ public class Point {
         this.pointId = pointId;
     }
 
-    public Integer getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Integer longitude) {
+    public void setLongitude( Double longitude) {
         this.longitude = longitude;
     }
 
-    public Integer getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Integer latitude) {
+    public void setLatitude( Double latitude) {
         this.latitude = latitude;
     }
 
