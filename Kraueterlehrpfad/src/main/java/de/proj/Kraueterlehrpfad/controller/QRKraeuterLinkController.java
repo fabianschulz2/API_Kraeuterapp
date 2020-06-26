@@ -1,13 +1,12 @@
 package de.proj.Kraueterlehrpfad.controller;
 
 import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
+import de.proj.Kraueterlehrpfad.repository.KrautRepository;
+import de.proj.Kraueterlehrpfad.repository.QRCodeOhneLinksRepository;
 import de.proj.Kraueterlehrpfad.repository.QRKraeuterLinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +15,6 @@ public class QRKraeuterLinkController {
 
     @Autowired
     QRKraeuterLinkRepository qrKraeuterLinkRepository;
-
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/links",
@@ -33,6 +31,20 @@ public class QRKraeuterLinkController {
     )
     public void deleteKraut(@PathVariable("id") Integer id) {
         qrKraeuterLinkRepository.deleteById(id);
+
     }
 
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            path = "/links",
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+
+    public QRKraeuterLink updateLink(@RequestBody QRKraeuterLink link) {
+        QRKraeuterLink updateLink = qrKraeuterLinkRepository.getOne(link.getQr_link_id());
+        updateLink.setKraut(link.getKraut());
+        updateLink.setQrCode(link.getQrCode());
+        return qrKraeuterLinkRepository.saveAndFlush(updateLink);
+
+    }
 }

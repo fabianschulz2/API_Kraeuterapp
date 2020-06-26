@@ -1,6 +1,7 @@
 package de.proj.Kraueterlehrpfad.controller;
 
 import de.proj.Kraueterlehrpfad.Entity.QRCode;
+import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
 import de.proj.Kraueterlehrpfad.repository.QRCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,6 +35,22 @@ public class QRCodeController {
         QRCode qrCode = qrCodeRepository.findById(id).get();
         return qrCode;
     }
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            path = "/qr-kraeuter-rebe-links",
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+
+    public QRCode updateLink(@RequestBody QRCode qrcode) {
+        QRCode updateQrCode = qrCodeRepository.getOne(qrcode.getQr_id());
+        updateQrCode.setRebe(qrcode.getRebe());
+        updateQrCode.setIdentifier(qrcode.getIdentifier());
+        updateQrCode.setQr_id(qrcode.getQr_id());
+        updateQrCode.setQrKraeuterLinkSet(qrcode.getQrKraeuterLinkSet());
+        return qrCodeRepository.saveAndFlush(updateQrCode);
+
+    }
+
     @RequestMapping(
             method = RequestMethod.DELETE,
             path = "/qrcodes/{id}"

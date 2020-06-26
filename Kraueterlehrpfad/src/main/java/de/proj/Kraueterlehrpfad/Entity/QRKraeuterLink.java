@@ -3,6 +3,7 @@ package de.proj.Kraueterlehrpfad.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
 
@@ -18,13 +19,13 @@ public class QRKraeuterLink {
     @JoinColumn(name = "qr_id_fk")
     @ManyToOne
     @JsonBackReference
-
+    @Immutable
     private QRCode qrCode;
 
 
     @JoinColumn(name = "kraeuter_id_fk")
     @ManyToOne
-    @JsonManagedReference
+   // @JsonManagedReference
     private Kraut kraut;
 
     public QRKraeuterLink() {
