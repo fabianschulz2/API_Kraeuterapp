@@ -16,13 +16,13 @@ public class QRCode {
     String identifier;
 
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference
     @JoinColumn(name = "reben_id")
     private Rebe rebe;
 
 
     @OneToMany(mappedBy = "qrCode")
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
     public QRCode() {
