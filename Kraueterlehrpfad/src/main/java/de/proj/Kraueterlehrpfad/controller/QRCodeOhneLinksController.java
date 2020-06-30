@@ -29,10 +29,8 @@ public class QRCodeOhneLinksController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public  QRCodeOhneLinks saveQRCode(@RequestBody QRCodeOhneLinks qrCode){
-        return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
+        return qrCodeRepository.save(qrCode);
     }
-
-
 
 
 }

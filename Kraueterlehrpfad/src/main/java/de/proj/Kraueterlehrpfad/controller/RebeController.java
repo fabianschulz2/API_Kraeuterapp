@@ -5,10 +5,7 @@ import de.proj.Kraueterlehrpfad.Entity.Rebe;
 import de.proj.Kraueterlehrpfad.repository.RebeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
@@ -28,6 +25,17 @@ public class RebeController {
     public List<Rebe> getReben(){
         List<Rebe> rebeList = rebeRepository.findAll();
         return rebeList;
+    }
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            path = "/reben",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+
+    public Rebe postRebe(@RequestBody Rebe rebe){
+        return rebeRepository.save(rebe);
     }
 
     @RequestMapping(

@@ -1,8 +1,10 @@
 package de.proj.Kraueterlehrpfad.controller;
 
+import de.proj.Kraueterlehrpfad.Entity.Kraut;
+import de.proj.Kraueterlehrpfad.Entity.QRCode;
 import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
 import de.proj.Kraueterlehrpfad.repository.KrautRepository;
-import de.proj.Kraueterlehrpfad.repository.QRCodeOhneLinksRepository;
+import de.proj.Kraueterlehrpfad.repository.QRCodeRepository;
 import de.proj.Kraueterlehrpfad.repository.QRKraeuterLinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,6 +17,13 @@ public class QRKraeuterLinkController {
 
     @Autowired
     QRKraeuterLinkRepository qrKraeuterLinkRepository;
+
+    @Autowired
+    QRCodeRepository qrCodeRepository;
+
+    @Autowired
+    KrautRepository krautRepository;
+
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/links",
@@ -24,6 +33,20 @@ public class QRKraeuterLinkController {
         List<QRKraeuterLink> linkList = qrKraeuterLinkRepository.findAll();
         return linkList;
     }
+    @RequestMapping(
+            method = RequestMethod.POST,
+            path = "/links/{qrId}/{krautId}/",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public QRKraeuterLink postQRKraeuterLink(@PathVariable (value = "qrId") Integer qrId, @PathVariable (value = "krautId") Integer krautId ,@RequestBody QRKraeuterLink qrKraeuterLink){
+        QRKraeuterLink x = new QRKraeuterLink();
+        Kraut kraut = krautRepository.findById(krautId).get();
+        QRCode qrCode = qrCodeRepository.findById(qrId).get();
+        x.setKraut(kraut);
+        x.setQrCode(qrCode);
+        return qrKraeuterLinkRepository.save(x);
+    }
 
     @RequestMapping(
             method = RequestMethod.DELETE,
@@ -31,20 +54,6 @@ public class QRKraeuterLinkController {
     )
     public void deleteKraut(@PathVariable("id") Integer id) {
         qrKraeuterLinkRepository.deleteById(id);
-
     }
 
-    @RequestMapping(
-            method = RequestMethod.PUT,
-            path = "/links",
-            consumes = MediaType.APPLICATION_JSON_VALUE
-    )
-
-    public QRKraeuterLink updateLink(@RequestBody QRKraeuterLink link) {
-        QRKraeuterLink updateLink = qrKraeuterLinkRepository.getOne(link.getQr_link_id());
-        updateLink.setKraut(link.getKraut());
-        updateLink.setQrCode(link.getQrCode());
-        return qrKraeuterLinkRepository.saveAndFlush(updateLink);
-
-    }
 }
