@@ -1,13 +1,14 @@
 package de.proj.Kraueterlehrpfad.controller;
 
+import de.proj.Kraueterlehrpfad.Entity.Kraut;
+import de.proj.Kraueterlehrpfad.Entity.QRCode;
 import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
+import de.proj.Kraueterlehrpfad.repository.KrautRepository;
+import de.proj.Kraueterlehrpfad.repository.QRCodeRepository;
 import de.proj.Kraueterlehrpfad.repository.QRKraeuterLinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +18,12 @@ public class QRKraeuterLinkController {
     @Autowired
     QRKraeuterLinkRepository qrKraeuterLinkRepository;
 
+    @Autowired
+    QRCodeRepository qrCodeRepository;
+
+    @Autowired
+    KrautRepository krautRepository;
+
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/links",
@@ -25,6 +32,20 @@ public class QRKraeuterLinkController {
     public List<QRKraeuterLink> getQRKraeuterLink() {
         List<QRKraeuterLink> linkList = qrKraeuterLinkRepository.findAll();
         return linkList;
+    }
+    @RequestMapping(
+            method = RequestMethod.POST,
+            path = "/links/{qrId}/{krautId}/",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public QRKraeuterLink postQRKraeuterLink(@PathVariable (value = "qrId") Integer qrId, @PathVariable (value = "krautId") Integer krautId ,@RequestBody QRKraeuterLink qrKraeuterLink){
+        Kraut kraut = krautRepository.findById(krautId).get();
+        QRCode qrCode = qrCodeRepository.findById(qrId).get();
+        QRKraeuterLink qrKraeuterLink1 = qrKraeuterLinkRepository.save(qrKraeuterLink);
+        qrKraeuterLink1.setKraut(kraut);
+        qrKraeuterLink.setQrCode(qrCode);
+        return qrKraeuterLinkRepository.save(qrKraeuterLink);
     }
 
     @RequestMapping(

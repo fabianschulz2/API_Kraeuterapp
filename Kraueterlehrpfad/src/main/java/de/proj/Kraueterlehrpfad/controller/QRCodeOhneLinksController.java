@@ -21,16 +21,16 @@ public class QRCodeOhneLinksController {
         List<QRCodeOhneLinks> qrCodeList = qrCodeRepository.findAll();
         return qrCodeList;
     }
-
-    @RequestMapping(
-            method = RequestMethod.POST,
-            path = "/qrcodes",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE
-    )
-    public  QRCodeOhneLinks saveQRCode(@RequestBody QRCodeOhneLinks qrCode){
-        return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
-    }
+//
+//    @RequestMapping(
+//            method = RequestMethod.POST,
+//            path = "/qrcodes",
+//            produces = MediaType.APPLICATION_JSON_VALUE,
+//            consumes = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public  QRCodeOhneLinks saveQRCode(@RequestBody QRCodeOhneLinks qrCode){
+//        return qrCodeRepository.save(qrCode); // gibt er die id zurueck?
+//    }
 
 //    @RequestMapping(
 //            method = RequestMethod.DELETE,

@@ -37,7 +37,7 @@ public class QRCodeController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            path = "/qr-kraeuter-rebe-links",
+            path = "/qrcodes",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
