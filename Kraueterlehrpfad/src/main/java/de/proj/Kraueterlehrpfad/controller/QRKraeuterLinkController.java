@@ -40,12 +40,12 @@ public class QRKraeuterLinkController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public QRKraeuterLink postQRKraeuterLink(@PathVariable (value = "qrId") Integer qrId, @PathVariable (value = "krautId") Integer krautId ,@RequestBody QRKraeuterLink qrKraeuterLink){
+        QRKraeuterLink x = new QRKraeuterLink();
         Kraut kraut = krautRepository.findById(krautId).get();
         QRCode qrCode = qrCodeRepository.findById(qrId).get();
-        QRKraeuterLink qrKraeuterLink1 = qrKraeuterLinkRepository.save(qrKraeuterLink);
-        qrKraeuterLink1.setKraut(kraut);
-        qrKraeuterLink.setQrCode(qrCode);
-        return qrKraeuterLinkRepository.save(qrKraeuterLink);
+        x.setKraut(kraut);
+        x.setQrCode(qrCode);
+        return qrKraeuterLinkRepository.save(x);
     }
 
     @RequestMapping(

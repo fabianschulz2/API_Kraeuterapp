@@ -18,13 +18,12 @@ public class QRKraeuterLink {
     @JoinColumn(name = "qr_id_fk")
     @ManyToOne
     @JsonBackReference
-
     private QRCode qrCode;
 
 
     @JoinColumn(name = "kraeuter_id_fk")
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference
     private Kraut kraut;
 
     public QRKraeuterLink() {

@@ -4,10 +4,7 @@ import de.proj.Kraueterlehrpfad.Entity.Route;
 import de.proj.Kraueterlehrpfad.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,17 @@ public class RouteController {
         List<Route> routeList = routeRepository.findAll();
         return routeList;
     }
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            path="/routen",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Route postRout(@RequestBody Route route){
+        return routeRepository.save(route);
+    }
+
     @RequestMapping(
             method = RequestMethod.DELETE,
             path = "/routen/{id}"

@@ -16,7 +16,7 @@ public class Route {
     private String name;
 
     //diese annotation wird benoetigt um vor loeschen der route alle punkte zu loeschen
-    @OneToMany(mappedBy = "route", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "route", orphanRemoval = true, cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<Point> pointSet;
 

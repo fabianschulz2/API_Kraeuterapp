@@ -35,16 +35,16 @@ public class QRCodeController {
         return qrCode;
     }
 
-    @RequestMapping(
-            method = RequestMethod.POST,
-            path = "/qrcodes",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public QRCode postQrCode(@RequestBody QRCode qrCode){
-        QRCode returnQrCode = qrCodeRepository.save(qrCode);
-        return returnQrCode;
-    }
+//    @RequestMapping(
+//            method = RequestMethod.POST,
+//            path = "/qrcodes",
+//            consumes = MediaType.APPLICATION_JSON_VALUE,
+//            produces = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public QRCode postQrCode(@RequestBody QRCode qrCode){
+//        QRCode returnQrCode = qrCodeRepository.save(qrCode);
+//        return returnQrCode;
+//    }
 
     @RequestMapping(
             method = RequestMethod.DELETE,

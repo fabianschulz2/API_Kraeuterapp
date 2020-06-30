@@ -41,7 +41,7 @@ public class Kraut {
     private String inhaltsstoffe;
     private String verwendung_in_kueche;
 
-    @OneToMany(mappedBy = "kraut")
+    @OneToMany(mappedBy = "kraut", orphanRemoval = true, cascade = CascadeType.REMOVE)
     @JsonBackReference
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 

@@ -9,9 +9,6 @@ import java.util.Set;
 @Table(name = "qr_code")
 
 public class QRCode {
-    //verlinkungen ohne Daten
-//    @Column(name="reben_id", updatable = false, insertable=false)
-//    private int rebenId;
 
     private String identifier;
 
@@ -21,13 +18,13 @@ public class QRCode {
 
     //Verlinkungen mit Daten
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference
     @JoinColumn(name = "reben_id")
     private Rebe rebe;
 
 
-    @OneToMany(mappedBy = "qrCode")
-    @JsonManagedReference
+    @OneToMany(mappedBy = "qrCode", orphanRemoval = true, cascade = CascadeType.REMOVE)
+    //@JsonManagedReference
     private Set<QRKraeuterLink> qrKraeuterLinkSet;
 
     public QRCode() {
