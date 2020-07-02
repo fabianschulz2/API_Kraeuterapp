@@ -47,21 +47,21 @@ public class QRCodeController {
 //        return returnQrCode;
 //    }
 
-    @RequestMapping(
-            method = RequestMethod.PUT,
-            path = "/qr-kraeuter-rebe-links",
-            consumes = MediaType.APPLICATION_JSON_VALUE
-    )
-
-    public QRCode updateLink(@RequestBody QRCode qrcode) {
-        QRCode updateQrCode = qrCodeRepository.getOne(qrcode.getQr_id());
-        updateQrCode.setRebe(qrcode.getRebe());
-        updateQrCode.setIdentifier(qrcode.getIdentifier());
-        updateQrCode.setQr_id(qrcode.getQr_id());
-        updateQrCode.setQrKraeuterLinkSet(qrcode.getQrKraeuterLinkSet());
-        return qrCodeRepository.saveAndFlush(updateQrCode);
-
-    }
+//    @RequestMapping(
+//            method = RequestMethod.PUT,
+//            path = "/qr-kraeuter-rebe-links",
+//            consumes = MediaType.APPLICATION_JSON_VALUE
+//    )
+//
+//    public QRCode updateLink(@RequestBody QRCode qrcode) {
+//        QRCode updateQrCode = qrCodeRepository.getOne(qrcode.getQr_id());
+//        updateQrCode.setRebe(qrcode.getRebe());
+//        updateQrCode.setIdentifier(qrcode.getIdentifier());
+//        updateQrCode.setQr_id(qrcode.getQr_id());
+//        updateQrCode.setQrKraeuterLinkSet(qrcode.getQrKraeuterLinkSet());
+//        return qrCodeRepository.saveAndFlush(updateQrCode);
+//
+//    }
 
     @RequestMapping(
             method = RequestMethod.DELETE,

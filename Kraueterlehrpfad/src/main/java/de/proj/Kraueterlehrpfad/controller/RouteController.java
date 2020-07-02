@@ -1,5 +1,6 @@
 package de.proj.Kraueterlehrpfad.controller;
 
+import de.proj.Kraueterlehrpfad.Entity.Rebe;
 import de.proj.Kraueterlehrpfad.Entity.Route;
 import de.proj.Kraueterlehrpfad.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,4 +41,17 @@ public class RouteController {
     public void deleteKraut(@PathVariable("id") Integer id) {
         routeRepository.deleteById(id);
     }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            path = "/routen",
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Route updateLink(@RequestBody Route route) {
+        Route updateRoute = routeRepository.getOne(route.getRouteId());
+        updateRoute.setName(route.getName());
+        updateRoute.setRouteId(route.getRouteId());
+        return routeRepository.saveAndFlush(updateRoute);
+    }
+
 }

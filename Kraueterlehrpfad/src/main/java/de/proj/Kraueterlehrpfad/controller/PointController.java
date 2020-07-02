@@ -1,11 +1,11 @@
 package de.proj.Kraueterlehrpfad.controller;
 
+import de.proj.Kraueterlehrpfad.Entity.Point;
+import de.proj.Kraueterlehrpfad.Entity.Route;
 import de.proj.Kraueterlehrpfad.repository.PointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PointController {
@@ -19,4 +19,18 @@ public class PointController {
     public void deleteKraut(@PathVariable("id") Integer id) {
         pointRepository.deleteById(id);
     }
+//
+//    @RequestMapping(
+//            method = RequestMethod.PUT,
+//            path = "/point",
+//            consumes = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public Point updateLink(@RequestBody Point point) {
+//        Point updatePoint = pointRepository.getOne(point.getPointId());
+//        updatePoint.setLatitude(point.getLatitude());
+//        updatePoint.setLongitude(point.getLongitude());
+//        updatePoint.setPointId(point.getPointId());
+//        updatePoint.setRoute(point.getRoute());
+//        return pointRepository.saveAndFlush(updatePoint);
+//    }
 }

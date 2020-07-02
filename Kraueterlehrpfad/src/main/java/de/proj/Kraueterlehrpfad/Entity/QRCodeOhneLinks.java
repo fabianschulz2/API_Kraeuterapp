@@ -8,9 +8,9 @@ import javax.persistence.*;
 public class QRCodeOhneLinks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer qr_id;
-    Integer reben_id;
-    String identifier;
+    private Integer qr_id;
+    private Integer reben_id;
+    private String identifier;
 
     public QRCodeOhneLinks() {
     }

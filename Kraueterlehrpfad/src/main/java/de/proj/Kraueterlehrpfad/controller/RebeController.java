@@ -1,6 +1,7 @@
 package de.proj.Kraueterlehrpfad.controller;
 
 import de.proj.Kraueterlehrpfad.Entity.QRCode;
+import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLinkOhneLinks;
 import de.proj.Kraueterlehrpfad.Entity.Rebe;
 import de.proj.Kraueterlehrpfad.repository.RebeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,24 @@ public class RebeController {
         //loescht rebe, auf die es jetzt keine verweise mehr gibe
         rebeRepository.deleteById(id);
     }
-
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            path = "/reben",
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Rebe updateLink(@RequestBody Rebe rebe) {
+        Rebe updateRebe = rebeRepository.getOne(rebe.getReben_id());
+        updateRebe.setBodenpflege(rebe.getBodenpflege());
+        updateRebe.setPflanzjahr(rebe.getPflanzjahr());
+        updateRebe.setQrCodeSet(rebe.getQrCodeSet());
+        updateRebe.setReben_id(rebe.getReben_id());
+        updateRebe.setRebsorte(rebe.getRebsorte());
+        updateRebe.setShop_link(rebe.getShop_link());
+        updateRebe.setSorteneigenschaft(rebe.getSorteneigenschaft());
+        updateRebe.setBodenpflege(rebe.getBodenpflege());
+        updateRebe.setWeinlage(rebe.getWeinlage());
+        updateRebe.setWissenswertes(rebe.getWissenswertes());
+        return rebeRepository.saveAndFlush(updateRebe);
+    }
 
 }
