@@ -28,7 +28,7 @@ public class QRCodeController {
     //ein qr code by qr_id mit allen Verlinkungen
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/qr-kraeuter-rebe-links/{id}",
+            path = "/getQrCodeById/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public QRCode getQRKraeuterLinks(@PathVariable("id") Integer id){
@@ -39,7 +39,7 @@ public class QRCodeController {
     //ein qr code by identifier mit allen Verlinkungen
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/qr-kraeuter-rebe-links-by-identifier/{identifier}",
+            path = "/getQrCodeByIdentifier/{identifier}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public QRCode getQRKraeuterLinksByIdentifier(@PathVariable("identifier")String identifier){
