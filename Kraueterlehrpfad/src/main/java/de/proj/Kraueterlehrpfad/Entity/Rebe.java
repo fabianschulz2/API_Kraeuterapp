@@ -21,7 +21,8 @@ public class Rebe {
     private String wissenswertes;
     private String bodenpflege;
     private String shop_link;
-
+    private String quellen;
+    private String bildUrl;
 
     @OneToMany(mappedBy = "rebe")
     @JsonBackReference
@@ -32,7 +33,7 @@ public class Rebe {
 
     }
 
-    public Rebe(Integer reben_id, String weinlage, String rebsorte, Date pflanzjahr, String sorteneigenschaft, String wissenswertes, String bodenpflege, String shop_link) {
+    public Rebe(Integer reben_id, String weinlage, String rebsorte, Date pflanzjahr, String sorteneigenschaft, String wissenswertes, String bodenpflege, String shop_link, String quellen, String bildUrl, Set<QRCode> qrCodeSet) {
         this.reben_id = reben_id;
         this.weinlage = weinlage;
         this.rebsorte = rebsorte;
@@ -41,6 +42,25 @@ public class Rebe {
         this.wissenswertes = wissenswertes;
         this.bodenpflege = bodenpflege;
         this.shop_link = shop_link;
+        this.quellen = quellen;
+        this.bildUrl = bildUrl;
+        this.qrCodeSet = qrCodeSet;
+    }
+
+    public String getQuellen() {
+        return quellen;
+    }
+
+    public void setQuellen(String quellen) {
+        this.quellen = quellen;
+    }
+
+    public String getBildUrl() {
+        return bildUrl;
+    }
+
+    public void setBildUrl(String bildUrl) {
+        this.bildUrl = bildUrl;
     }
 
     public Set<QRCode> getQrCodeSet() {

@@ -40,6 +40,8 @@ public class Kraut {
     private String heilanwendung;
     private String inhaltsstoffe;
     private String verwendung_in_kueche;
+    private String quellen;
+    private String bildUrl;
 
     @OneToMany(mappedBy = "kraut", orphanRemoval = true, cascade = CascadeType.REMOVE)
     @JsonBackReference
@@ -50,7 +52,7 @@ public class Kraut {
 
     }
 
-    public Kraut(Integer kraeuter_id, String name,  String lateinischer_name, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendung_in_kueche, Set<QRKraeuterLink> qrKraeuterLinkSet) {
+    public Kraut(Integer kraeuter_id, String name, String lateinischer_name, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendung_in_kueche, String quellen, String bildUrl, Set<QRKraeuterLink> qrKraeuterLinkSet) {
         this.kraeuter_id = kraeuter_id;
         this.name = name;
         this.lateinischer_name = lateinischer_name;
@@ -69,7 +71,25 @@ public class Kraut {
         this.heilanwendung = heilanwendung;
         this.inhaltsstoffe = inhaltsstoffe;
         this.verwendung_in_kueche = verwendung_in_kueche;
+        this.quellen = quellen;
+        this.bildUrl = bildUrl;
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+    }
+
+    public String getQuellen() {
+        return quellen;
+    }
+
+    public void setQuellen(String quellen) {
+        this.quellen = quellen;
+    }
+
+    public String getBildUrl() {
+        return bildUrl;
+    }
+
+    public void setBildUrl(String bildUrl) {
+        this.bildUrl = bildUrl;
     }
 
     public String getVerwendung_in_kueche() {
