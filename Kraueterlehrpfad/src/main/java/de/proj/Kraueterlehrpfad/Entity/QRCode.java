@@ -31,10 +31,9 @@ public class QRCode {
 
     }
 
-    public QRCode(Integer qr_id, String identifier/*, Integer rebenId*/) {
+    public QRCode(Integer qr_id, String identifier) {
         this.qr_id = qr_id;
         this.identifier = identifier;
-//        this.rebenId = rebenId;
     }
 
     public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
@@ -44,14 +43,6 @@ public class QRCode {
     public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
     }
-
-//    public int getRebenId() {
-//        return rebenId;
-//    }
-//
-//    public void setRebenId(int rebenId) {
-//        this.rebenId = rebenId;
-//    }
 
     public Rebe getRebe() {
         return rebe;
