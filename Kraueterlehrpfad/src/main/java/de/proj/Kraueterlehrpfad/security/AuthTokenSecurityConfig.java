@@ -23,12 +23,12 @@ public class AuthTokenSecurityConfig extends WebSecurityConfigurerAdapter {
 
     //@Value("${howtodoinjava.http.auth.tokenName}")
 
-    @Value("name")
+    @Value("${kraeuterlehrpfad.http.auth.tokenName}") //authKey
     private String authHeaderName;
 
     //TODO: retrieve this token value from data source
     //@Value("${howtodoinjava.http.auth.tokenValue}")
-    @Value("123")
+    @Value("${kraeuterlehrpfad.http.auth.tokenValue}") //123
     private String authHeaderValue;
 
     @Override
