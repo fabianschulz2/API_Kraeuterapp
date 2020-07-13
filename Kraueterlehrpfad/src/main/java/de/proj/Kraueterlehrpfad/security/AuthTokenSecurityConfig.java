@@ -55,7 +55,7 @@ public class AuthTokenSecurityConfig extends WebSecurityConfigurerAdapter {
         });
 
         httpSecurity.
-                antMatcher("/kraeuter/**")
+                antMatcher("/**")
                 .csrf()
                 .disable()
                 .sessionManagement()
