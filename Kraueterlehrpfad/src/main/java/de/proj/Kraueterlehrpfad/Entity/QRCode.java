@@ -12,6 +12,12 @@ public class QRCode {
 
     private String identifier;
 
+    @Column(name = "lat")
+    private Double latitude;
+
+    @Column(name = "long")
+    private Double longitude;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer qr_id;
@@ -31,9 +37,11 @@ public class QRCode {
 
     }
 
-    public QRCode(Integer qr_id, String identifier) {
-        this.qr_id = qr_id;
+    public QRCode(String identifier, Double latitude, Double longitude, Integer qr_id) {
         this.identifier = identifier;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.qr_id = qr_id;
     }
 
     public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
@@ -68,5 +76,19 @@ public class QRCode {
         this.identifier = identifier;
     }
 
+    public Double getLatitude() {
+        return latitude;
+    }
 
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 }

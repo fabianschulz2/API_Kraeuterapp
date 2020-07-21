@@ -1,6 +1,5 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.Entity.Kraut;
 import de.proj.Kraueterlehrpfad.Entity.QRCodeOhneLinks;
 import de.proj.Kraueterlehrpfad.repository.QRCodeOhneLinksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +39,9 @@ public class QRCodeOhneLinksController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public QRCodeOhneLinks updateQRCode(@RequestBody QRCodeOhneLinks qrCode) {
-        QRCodeOhneLinks updateQrCode = qrCodeRepository.getOne(qrCode.getQr_id());
+        QRCodeOhneLinks updateQrCode = qrCodeRepository.getOne(qrCode.getQrId());
        updateQrCode.setIdentifier(qrCode.getIdentifier());
-       updateQrCode.setQr_id(qrCode.getQr_id());
+       updateQrCode.setQrId(qrCode.getQrId());
        updateQrCode.setReben_id(qrCode.getReben_id());
         return qrCodeRepository.saveAndFlush(updateQrCode);
     }
