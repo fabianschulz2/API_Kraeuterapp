@@ -12,7 +12,7 @@ public class QRCodeOhneLinks {
     private Integer qrId;
 
     @Column(name = "reben_id")
-    private Integer reben_id;
+    private Integer rebenId;
 
     @Column(name = "identifier")
     private String identifier;
@@ -26,20 +26,20 @@ public class QRCodeOhneLinks {
     public QRCodeOhneLinks() {
     }
 
-    public QRCodeOhneLinks(Integer qr_id, Integer reben_id, String identifier, Double latitude, Double longitude) {
-        this.qrId = qr_id;
-        this.reben_id = reben_id;
+    public QRCodeOhneLinks(Integer qrId, Integer rebenId, String identifier, Double latitude, Double longitude) {
+        this.qrId = qrId;
+        this.rebenId = rebenId;
         this.identifier = identifier;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public Integer getReben_id() {
-        return reben_id;
+    public Integer getRebenId() {
+        return rebenId;
     }
 
-    public void setReben_id(Integer reben_id) {
-        this.reben_id = reben_id;
+    public void setRebenId(Integer rebenId) {
+        this.rebenId = rebenId;
     }
 
     public Integer getQrId() {
@@ -73,8 +73,6 @@ public class QRCodeOhneLinks {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
-
-
 
 
 }

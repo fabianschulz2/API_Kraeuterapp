@@ -54,7 +54,7 @@ public class KrautController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public Kraut updateKraeuter(@RequestBody Kraut kraut) {
-        Kraut updateKraeuter = krautRepository.getOne(kraut.getKraeuter_id());
+        Kraut updateKraeuter = krautRepository.getOne(kraut.getKraeuterId());
         updateKraeuter.setAusbreitung(kraut.getAusbreitung());
         updateKraeuter.setBestaeuber(kraut.getBestaeuber());
         updateKraeuter.setBlueten(kraut.getBlueten());
@@ -65,13 +65,13 @@ public class KrautController {
         updateKraeuter.setHeilanwendung(kraut.getHeilanwendung());
         updateKraeuter.setInhaltsstoffe(kraut.getInhaltsstoffe());
         updateKraeuter.setInsektenarten(kraut.getInsektenarten());
-        updateKraeuter.setLateinischer_name(kraut.getLateinischer_name());
+        updateKraeuter.setLateinischerName(kraut.getLateinischerName());
         updateKraeuter.setName(kraut.getName());
         updateKraeuter.setSamenreife(kraut.getSamenreife());
         updateKraeuter.setSchmetterlingsfutterpflanze(kraut.getSchmetterlingsfutterpflanze());
         updateKraeuter.setVorkommen(kraut.getVorkommen());
         updateKraeuter.setWuchs(kraut.getWuchs());
-        updateKraeuter.setVerwendung_in_kueche(kraut.getVerwendung_in_kueche());
+        updateKraeuter.setVerwendungInKueche(kraut.getVerwendungInKueche());
         return krautRepository.saveAndFlush(updateKraeuter);
     }
 

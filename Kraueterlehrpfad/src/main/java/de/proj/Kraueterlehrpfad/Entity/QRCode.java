@@ -1,15 +1,13 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "qr_code")
-
 public class QRCode {
 
+    @Column(name = "identifier")
     private String identifier;
 
     @Column(name = "lat")
@@ -20,7 +18,8 @@ public class QRCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer qr_id;
+    @Column(name = "qr_id")
+    private Integer qrId;
 
     //Verlinkungen mit Daten
     @ManyToOne
@@ -37,11 +36,11 @@ public class QRCode {
 
     }
 
-    public QRCode(String identifier, Double latitude, Double longitude, Integer qr_id) {
+    public QRCode(String identifier, Double latitude, Double longitude, Integer qrId) {
         this.identifier = identifier;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.qr_id = qr_id;
+        this.qrId = qrId;
     }
 
     public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
@@ -60,12 +59,12 @@ public class QRCode {
         this.rebe = rebe;
     }
 
-    public Integer getQr_id() {
-        return qr_id;
+    public Integer getQrId() {
+        return qrId;
     }
 
-    public void setQr_id(Integer qr_id) {
-        this.qr_id = qr_id;
+    public void setQrId(Integer qrId) {
+        this.qrId = qrId;
     }
 
     public String getIdentifier() {

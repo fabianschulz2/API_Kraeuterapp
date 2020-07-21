@@ -1,16 +1,8 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.springframework.http.MediaType;
-import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,25 +14,45 @@ public class Kraut {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer kraeuter_id;
+    @Column(name = "kraeuter_id")
+    private Integer kraeuterId;
+    @Column(name = "name")
     private String name;
-    private String lateinischer_name;
+    @Column(name = "lateinischer_name")
+    private String lateinischerName;
+    @Column(name = "familie")
     private String familie;
+    @Column(name = "wuchs")
     private String wuchs;
+    @Column(name = "bluetenzeit")
     private String bluetenzeit;
+    @Column(name = "blueten")
     private String blueten;
+    @Column(name = "ausbreitung")
     private String ausbreitung;
+    @Column(name = "vorkommen")
     private String vorkommen;
+    @Column(name = "samenreife")
     private String samenreife;
+    @Column(name = "fruchtreife")
     private String fruchtreife;
+    @Column(name = "fruechte")
     private String fruechte;
+    @Column(name = "bestaeuber")
     private String bestaeuber;
+    @Column(name = "insektenarten")
     private String insektenarten;
+    @Column(name = "schmetterlingsfutterpflanze")
     private String schmetterlingsfutterpflanze;
+    @Column(name = "heilanwendung")
     private String heilanwendung;
+    @Column(name = "inhaltsstoffe")
     private String inhaltsstoffe;
-    private String verwendung_in_kueche;
+    @Column(name = "verwendung_in_kueche")
+    private String verwendungInKueche;
+    @Column(name = "quellen")
     private String quellen;
+    @Column(name = "bildUrl")
     private String bildUrl;
 
     @OneToMany(mappedBy = "kraut", orphanRemoval = true, cascade = CascadeType.REMOVE)
@@ -52,10 +64,10 @@ public class Kraut {
 
     }
 
-    public Kraut(Integer kraeuter_id, String name, String lateinischer_name, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendung_in_kueche, String quellen, String bildUrl, Set<QRKraeuterLink> qrKraeuterLinkSet) {
-        this.kraeuter_id = kraeuter_id;
+    public Kraut(Integer kraeuterId, String name, String lateinischerName, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendungInKueche, String quellen, String bildUrl, Set<QRKraeuterLink> qrKraeuterLinkSet) {
+        this.kraeuterId = kraeuterId;
         this.name = name;
-        this.lateinischer_name = lateinischer_name;
+        this.lateinischerName = lateinischerName;
         this.familie = familie;
         this.wuchs = wuchs;
         this.bluetenzeit = bluetenzeit;
@@ -70,7 +82,7 @@ public class Kraut {
         this.schmetterlingsfutterpflanze = schmetterlingsfutterpflanze;
         this.heilanwendung = heilanwendung;
         this.inhaltsstoffe = inhaltsstoffe;
-        this.verwendung_in_kueche = verwendung_in_kueche;
+        this.verwendungInKueche = verwendungInKueche;
         this.quellen = quellen;
         this.bildUrl = bildUrl;
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
@@ -92,12 +104,12 @@ public class Kraut {
         this.bildUrl = bildUrl;
     }
 
-    public String getVerwendung_in_kueche() {
-        return verwendung_in_kueche;
+    public String getVerwendungInKueche() {
+        return verwendungInKueche;
     }
 
-    public void setVerwendung_in_kueche(String verwendung_in_kueche) {
-        this.verwendung_in_kueche = verwendung_in_kueche;
+    public void setVerwendungInKueche(String verwendungInKueche) {
+        this.verwendungInKueche = verwendungInKueche;
     }
 
     public String getBluetenzeit() {
@@ -132,12 +144,12 @@ public class Kraut {
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
     }
 
-    public Integer getKraeuter_id() {
-        return kraeuter_id;
+    public Integer getKraeuterId() {
+        return kraeuterId;
     }
 
-    public void setKraeuter_id(Integer kraeuter_id) {
-        this.kraeuter_id = kraeuter_id;
+    public void setKraeuterId(Integer kraeuterId) {
+        this.kraeuterId = kraeuterId;
     }
 
     public String getName() {
@@ -148,12 +160,12 @@ public class Kraut {
         this.name = name;
     }
 
-    public String getLateinischer_name() {
-        return lateinischer_name;
+    public String getLateinischerName() {
+        return lateinischerName;
     }
 
-    public void setLateinischer_name(String lateinischer_name) {
-        this.lateinischer_name = lateinischer_name;
+    public void setLateinischerName(String lateinischerName) {
+        this.lateinischerName = lateinischerName;
     }
 
     public String getFamilie() {

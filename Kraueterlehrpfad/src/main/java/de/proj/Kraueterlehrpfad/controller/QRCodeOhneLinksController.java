@@ -42,7 +42,7 @@ public class QRCodeOhneLinksController {
         QRCodeOhneLinks updateQrCode = qrCodeRepository.getOne(qrCode.getQrId());
        updateQrCode.setIdentifier(qrCode.getIdentifier());
        updateQrCode.setQrId(qrCode.getQrId());
-       updateQrCode.setReben_id(qrCode.getReben_id());
+       updateQrCode.setRebenId(qrCode.getRebenId());
         return qrCodeRepository.saveAndFlush(updateQrCode);
     }
 

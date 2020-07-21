@@ -1,7 +1,6 @@
 package de.proj.Kraueterlehrpfad.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,15 +12,25 @@ public class Rebe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer reben_id;
+    @Column(name = "reben_id")
+    private Integer rebenId;
+    @Column(name = "weinlage")
     private String weinlage;
+    @Column(name = "rebsorte")
     private String rebsorte;
+    @Column(name = "pflanzjahr")
     private Date pflanzjahr;
+    @Column(name = "sorteneigenschaft")
     private String sorteneigenschaft;
+    @Column(name = "wissenswertes")
     private String wissenswertes;
+    @Column(name = "bodenpflege")
     private String bodenpflege;
-    private String shop_link;
+    @Column(name = "shop_link")
+    private String shopLink;
+    @Column(name = "quellen")
     private String quellen;
+    @Column(name = "bildUrl")
     private String bildUrl;
 
     @OneToMany(mappedBy = "rebe")
@@ -33,15 +42,15 @@ public class Rebe {
 
     }
 
-    public Rebe(Integer reben_id, String weinlage, String rebsorte, Date pflanzjahr, String sorteneigenschaft, String wissenswertes, String bodenpflege, String shop_link, String quellen, String bildUrl, Set<QRCode> qrCodeSet) {
-        this.reben_id = reben_id;
+    public Rebe(Integer rebenId, String weinlage, String rebsorte, Date pflanzjahr, String sorteneigenschaft, String wissenswertes, String bodenpflege, String shopLink, String quellen, String bildUrl, Set<QRCode> qrCodeSet) {
+        this.rebenId = rebenId;
         this.weinlage = weinlage;
         this.rebsorte = rebsorte;
         this.pflanzjahr = pflanzjahr;
         this.sorteneigenschaft = sorteneigenschaft;
         this.wissenswertes = wissenswertes;
         this.bodenpflege = bodenpflege;
-        this.shop_link = shop_link;
+        this.shopLink = shopLink;
         this.quellen = quellen;
         this.bildUrl = bildUrl;
         this.qrCodeSet = qrCodeSet;
@@ -71,12 +80,12 @@ public class Rebe {
         this.qrCodeSet = qrCodeSet;
     }
 
-    public Integer getReben_id() {
-        return reben_id;
+    public Integer getRebenId() {
+        return rebenId;
     }
 
-    public void setReben_id(Integer reben_id) {
-        this.reben_id = reben_id;
+    public void setRebenId(Integer rebenId) {
+        this.rebenId = rebenId;
     }
 
     public String getWeinlage() {
@@ -127,11 +136,11 @@ public class Rebe {
         this.bodenpflege = bodenpflege;
     }
 
-    public String getShop_link() {
-        return shop_link;
+    public String getShopLink() {
+        return shopLink;
     }
 
-    public void setShop_link(String shop_link) {
-        this.shop_link = shop_link;
+    public void setShopLink(String shopLink) {
+        this.shopLink = shopLink;
     }
 }

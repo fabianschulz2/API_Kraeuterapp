@@ -20,7 +20,7 @@ public class Route {
     @JsonManagedReference
     private Set<Point> pointSet;
 
-    public Route(){
+    public Route() {
 
     }
 

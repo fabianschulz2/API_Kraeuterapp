@@ -2,51 +2,53 @@ package de.proj.Kraueterlehrpfad.Entity;
 
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "qr_kraut_link")
 public class QRKraeuterLinkOhneLinks {
 
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer qr_link_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "qr_link_id")
+    private Integer qrLinkId;
+    @Column(name = "qr_id_fk")
+    private Integer qrIdFk;
+    @Column(name = "kraeuter_id_fk")
+    private Integer kraeuterIdFk;
 
-        private Integer qr_id_fk;
-        private Integer kraeuter_id_fk;
 
+    public QRKraeuterLinkOhneLinks() {
 
-
-        public QRKraeuterLinkOhneLinks() {
-
-        }
-
-    public QRKraeuterLinkOhneLinks(Integer qr_link_id, Integer qr_id_fk, Integer kraeuter_id_fk) {
-        this.qr_link_id = qr_link_id;
-        this.qr_id_fk = qr_id_fk;
-        this.kraeuter_id_fk = kraeuter_id_fk;
     }
 
-    public Integer getQr_link_id() {
-        return qr_link_id;
+    public QRKraeuterLinkOhneLinks(Integer qrLinkId, Integer qrIdFk, Integer kraeuterIdFk) {
+        this.qrLinkId = qrLinkId;
+        this.qrIdFk = qrIdFk;
+        this.kraeuterIdFk = kraeuterIdFk;
     }
 
-    public void setQr_link_id(Integer qr_link_id) {
-        this.qr_link_id = qr_link_id;
+    public Integer getQrLinkId() {
+        return qrLinkId;
     }
 
-    public Integer getQr_id_fk() {
-        return qr_id_fk;
+    public void setQrLinkId(Integer qrLinkId) {
+        this.qrLinkId = qrLinkId;
     }
 
-    public void setQr_id_fk(Integer qr_id_fk) {
-        this.qr_id_fk = qr_id_fk;
+    public Integer getQrIdFk() {
+        return qrIdFk;
     }
 
-    public Integer getKraeuter_id_fk() {
-        return kraeuter_id_fk;
+    public void setQrIdFk(Integer qrIdFk) {
+        this.qrIdFk = qrIdFk;
     }
 
-    public void setKraeuter_id_fk(Integer kraeuter_id_fk) {
-        this.kraeuter_id_fk = kraeuter_id_fk;
+    public Integer getKraeuterIdFk() {
+        return kraeuterIdFk;
+    }
+
+    public void setKraeuterIdFk(Integer kraeuterIdFk) {
+        this.kraeuterIdFk = kraeuterIdFk;
     }
 }
