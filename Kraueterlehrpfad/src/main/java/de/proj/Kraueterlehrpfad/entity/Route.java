@@ -1,4 +1,4 @@
-package de.proj.Kraueterlehrpfad.Entity;
+package de.proj.Kraueterlehrpfad.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 

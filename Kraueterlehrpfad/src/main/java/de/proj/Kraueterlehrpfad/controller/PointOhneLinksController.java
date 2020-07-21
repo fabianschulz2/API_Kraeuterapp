@@ -1,6 +1,6 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.Entity.PointOhneLinks;
+import de.proj.Kraueterlehrpfad.entity.PointOhneLinks;
 import de.proj.Kraueterlehrpfad.repository.PointOhneLinksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

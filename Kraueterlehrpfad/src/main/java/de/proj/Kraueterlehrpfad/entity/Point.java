@@ -1,6 +1,5 @@
-package de.proj.Kraueterlehrpfad.Entity;
+package de.proj.Kraueterlehrpfad.entity;
 
-import org.springframework.lang.NonNull;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
