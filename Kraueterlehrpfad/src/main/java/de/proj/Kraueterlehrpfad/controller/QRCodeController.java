@@ -1,7 +1,6 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.Entity.QRCode;
-import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
+import de.proj.Kraueterlehrpfad.entity.QRCode;
 import de.proj.Kraueterlehrpfad.repository.QRCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

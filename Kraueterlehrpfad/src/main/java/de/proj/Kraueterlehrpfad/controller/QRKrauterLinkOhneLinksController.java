@@ -1,6 +1,6 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLinkOhneLinks;
+import de.proj.Kraueterlehrpfad.entity.QRKraeuterLinkOhneLinks;
 import de.proj.Kraueterlehrpfad.repository.QRKraeuterLinkOhneLinksRebository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

@@ -1,10 +1,13 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.Entity.Kraut;
+import de.proj.Kraueterlehrpfad.entity.Kraut;
+import de.proj.Kraueterlehrpfad.exception.KrautNotFoundException;
 import de.proj.Kraueterlehrpfad.repository.KrautRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,10 +35,17 @@ public class KrautController {
             path = "/kraeuter/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public Optional<Kraut> getKraut(@PathVariable("id") Integer id) {
-        System.out.println(krautRepository.existsById(id));
-        // was passiert wenn kraut null ist?
-        return krautRepository.findById(id);
+    public Kraut getKraut(@PathVariable("id") Integer id) {
+        try {
+            if(! krautRepository.existsById(id)){
+                throw new KrautNotFoundException();
+            }
+            return krautRepository.findById(id).get();
+        }catch (KrautNotFoundException ex){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Das Kraut "+id+" wurde nicht gefunden.",ex
+            );
+        }
     }
 
     @RequestMapping(
