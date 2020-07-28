@@ -3,6 +3,7 @@ package de.proj.Kraueterlehrpfad.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -54,6 +55,12 @@ public class Kraut {
     private String quellen;
     @Column(name = "bildUrl")
     private String bildUrl;
+    @Column(name = "bluetenzeit_anfang")
+    @Temporal(TemporalType.DATE)
+    private Date bluetenzeitAnfang;
+    @Column(name = "bluetenzeit_ende")
+    @Temporal(TemporalType.DATE)
+    private Date bluetenzeitEnde;
 
     @OneToMany(mappedBy = "kraut", orphanRemoval = true, cascade = CascadeType.REMOVE)
     @JsonBackReference
@@ -64,7 +71,7 @@ public class Kraut {
 
     }
 
-    public Kraut(Integer kraeuterId, String name, String lateinischerName, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendungInKueche, String quellen, String bildUrl, Set<QRKraeuterLink> qrKraeuterLinkSet) {
+    public Kraut(Integer kraeuterId, String name, String lateinischerName, String familie, String wuchs, String bluetenzeit, String blueten, String ausbreitung, String vorkommen, String samenreife, String fruchtreife, String fruechte, String bestaeuber, String insektenarten, String schmetterlingsfutterpflanze, String heilanwendung, String inhaltsstoffe, String verwendungInKueche, String quellen, String bildUrl, Set<QRKraeuterLink> qrKraeuterLinkSet, Date bluetenzeitAnfang, Date bluetenzeitEnde) {
         this.kraeuterId = kraeuterId;
         this.name = name;
         this.lateinischerName = lateinischerName;
@@ -86,6 +93,8 @@ public class Kraut {
         this.quellen = quellen;
         this.bildUrl = bildUrl;
         this.qrKraeuterLinkSet = qrKraeuterLinkSet;
+        this.bluetenzeitAnfang = bluetenzeitAnfang;
+        this.bluetenzeitEnde = bluetenzeitEnde;
     }
 
     public String getQuellen() {
@@ -256,5 +265,21 @@ public class Kraut {
 
     public void setInhaltsstoffe(String inhaltsstoffe) {
         this.inhaltsstoffe = inhaltsstoffe;
+    }
+
+    public Date getBluetenzeitAnfang() {
+        return bluetenzeitAnfang;
+    }
+
+    public void setBluetenzeitAnfang(Date bluetenzeitAnfang) {
+        this.bluetenzeitAnfang = bluetenzeitAnfang;
+    }
+
+    public Date getBluetenzeitEnde() {
+        return bluetenzeitEnde;
+    }
+
+    public void setBluetenzeitEnde(Date bluetenzeitEnde) {
+        this.bluetenzeitEnde = bluetenzeitEnde;
     }
 }
