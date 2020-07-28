@@ -8,7 +8,7 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<goupId>de.proj</goupId>
+	<groupId>de.proj</groupId>
 	<artifactId>Kraueterlehrpfad</artifactId>
 	<version>0.1.4-SNAPSHOT</version>
 	<name>Kraueterlehrpfad</name>
