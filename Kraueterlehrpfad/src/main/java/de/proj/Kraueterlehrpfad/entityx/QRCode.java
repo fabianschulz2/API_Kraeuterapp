@@ -1,4 +1,4 @@
-package de.proj.Kraueterlehrpfad.entity;
+package de.proj.Kraueterlehrpfad.entityx;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,10 +10,10 @@ public class QRCode {
     @Column(name = "identifier")
     private String identifier;
 
-    @Column(name = "lat")
+    @Column(name = "latitude")
     private Double latitude;
 
-    @Column(name = "long")
+    @Column(name = "longitude")
     private Double longitude;
 
     @Id
@@ -21,7 +21,6 @@ public class QRCode {
     @Column(name = "qr_id")
     private Integer qrId;
 
-    //Verlinkungen mit Daten
     @ManyToOne
     //@JsonManagedReference
     @JoinColumn(name = "reben_id")

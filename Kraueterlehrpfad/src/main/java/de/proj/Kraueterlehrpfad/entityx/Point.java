@@ -1,10 +1,12 @@
-package de.proj.Kraueterlehrpfad.entity;
+package de.proj.Kraueterlehrpfad.entityx;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "point")
-public class PointOhneLinks {
+public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "point_id")
@@ -13,17 +15,21 @@ public class PointOhneLinks {
     private Double longitude;
     @Column(name = "latitude")
     private Double latitude;
-    @Column(name = "rout_id")
-    private Integer routId;
 
-    public PointOhneLinks(Integer pointId, Double longitude, Double latitude, Integer routeId) {
+    @JoinColumn(name = "rout_id")
+    @ManyToOne
+    @JsonBackReference
+    private Route route;
+
+    public Point() {
+
+    }
+
+    public Point(Integer pointId, Double longitude, Double latitude, Route route) {
         this.pointId = pointId;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.routId = routeId;
-    }
-
-    public PointOhneLinks() {
+        this.route = route;
     }
 
     public Integer getPointId() {
@@ -50,13 +56,11 @@ public class PointOhneLinks {
         this.latitude = latitude;
     }
 
-    public Integer getRoutId() {
-        return routId;
+    public Route getRoute() {
+        return route;
     }
 
-    public void setRoutId(Integer routId) {
-        this.routId = routId;
+    public void setRoute(Route route) {
+        this.route = route;
     }
 }
-
-

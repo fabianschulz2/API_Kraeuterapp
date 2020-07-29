@@ -1,4 +1,4 @@
-package de.proj.Kraueterlehrpfad.entity;
+package de.proj.Kraueterlehrpfad.entityx;
 
 
 import javax.persistence.*;
@@ -17,10 +17,10 @@ public class QRCodeOhneLinks {
     @Column(name = "identifier")
     private String identifier;
 
-    @Column(name = "lat")
+    @Column(name = "latitude")
     private Double latitude;
 
-    @Column(name = "long")
+    @Column(name = "longitude")
     private Double longitude;
 
     public QRCodeOhneLinks() {
