@@ -82,6 +82,8 @@ public class KrautController {
         updateKraeuter.setVorkommen(kraut.getVorkommen());
         updateKraeuter.setWuchs(kraut.getWuchs());
         updateKraeuter.setVerwendungInKueche(kraut.getVerwendungInKueche());
+        updateKraeuter.setBluetenzeitAnfang(kraut.getBluetenzeitAnfang());
+        updateKraeuter.setBluetenzeitEnde(kraut.getBluetenzeitEnde());
         return krautRepository.saveAndFlush(updateKraeuter);
     }
 

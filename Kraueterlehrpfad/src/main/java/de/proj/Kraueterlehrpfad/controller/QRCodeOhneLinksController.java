@@ -43,6 +43,8 @@ public class QRCodeOhneLinksController {
        updateQrCode.setIdentifier(qrCode.getIdentifier());
        updateQrCode.setQrId(qrCode.getQrId());
        updateQrCode.setRebenId(qrCode.getRebenId());
+       updateQrCode.setLatitude(qrCode.getLatitude());
+       updateQrCode.setLongitude(qrCode.getLongitude());
         return qrCodeRepository.saveAndFlush(updateQrCode);
     }
 
