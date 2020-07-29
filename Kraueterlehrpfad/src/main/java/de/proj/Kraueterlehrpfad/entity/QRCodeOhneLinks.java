@@ -1,11 +1,18 @@
-package de.proj.Kraueterlehrpfad.entityx;
+package de.proj.Kraueterlehrpfad.entity;
+
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "qr_code")
-public class QRCode {
+public class QRCodeOhneLinks {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "qr_id")
+    private Integer qrId;
+
+    @Column(name = "reben_id")
+    private Integer rebenId;
 
     @Column(name = "identifier")
     private String identifier;
@@ -16,46 +23,23 @@ public class QRCode {
     @Column(name = "longitude")
     private Double longitude;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "qr_id")
-    private Integer qrId;
-
-    @ManyToOne
-    //@JsonManagedReference
-    @JoinColumn(name = "reben_id")
-    private Rebe rebe;
-
-
-    @OneToMany(mappedBy = "qrCode", orphanRemoval = true, cascade = CascadeType.REMOVE)
-    //@JsonManagedReference
-    private Set<QRKraeuterLink> qrKraeuterLinkSet;
-
-    public QRCode() {
-
+    public QRCodeOhneLinks() {
     }
 
-    public QRCode(String identifier, Double latitude, Double longitude, Integer qrId) {
+    public QRCodeOhneLinks(Integer qrId, Integer rebenId, String identifier, Double latitude, Double longitude) {
+        this.qrId = qrId;
+        this.rebenId = rebenId;
         this.identifier = identifier;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.qrId = qrId;
     }
 
-    public Set<QRKraeuterLink> getQrKraeuterLinkSet() {
-        return qrKraeuterLinkSet;
+    public Integer getRebenId() {
+        return rebenId;
     }
 
-    public void setQrKraeuterLinkSet(Set<QRKraeuterLink> qrKraeuterLinkSet) {
-        this.qrKraeuterLinkSet = qrKraeuterLinkSet;
-    }
-
-    public Rebe getRebe() {
-        return rebe;
-    }
-
-    public void setRebe(Rebe rebe) {
-        this.rebe = rebe;
+    public void setRebenId(Integer rebenId) {
+        this.rebenId = rebenId;
     }
 
     public Integer getQrId() {
@@ -89,4 +73,6 @@ public class QRCode {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
+
 }

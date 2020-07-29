@@ -1,7 +1,7 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.entityx.QRCode;
-import de.proj.Kraueterlehrpfad.entityx.Rebe;
+import de.proj.Kraueterlehrpfad.entity.QRCode;
+import de.proj.Kraueterlehrpfad.entity.Rebe;
 import de.proj.Kraueterlehrpfad.repository.RebeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
