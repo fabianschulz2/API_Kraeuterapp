@@ -1,6 +1,6 @@
 package de.proj.Kraueterlehrpfad.entity;
 
-
+// ;)
 import javax.persistence.*;
 
 @Entity
