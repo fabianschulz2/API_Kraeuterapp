@@ -1,7 +1,10 @@
 package de.proj.Kraueterlehrpfad.controller;
 
+import de.proj.Kraueterlehrpfad.Entity.Point;
+import de.proj.Kraueterlehrpfad.Entity.Route;
 import de.proj.Kraueterlehrpfad.repository.PointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -1,15 +1,13 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.entity.Kraut;
-import de.proj.Kraueterlehrpfad.exception.KrautNotFoundException;
+import de.proj.Kraueterlehrpfad.Entity.Kraut;
 import de.proj.Kraueterlehrpfad.repository.KrautRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -34,17 +32,10 @@ public class KrautController {
             path = "/kraeuter/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public Kraut getKraut(@PathVariable("id") Integer id) {
-        try {
-            if(! krautRepository.existsById(id)){
-                throw new KrautNotFoundException();
-            }
-            return krautRepository.findById(id).get();
-        }catch (KrautNotFoundException ex){
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Das Kraut "+id+" wurde nicht gefunden.",ex
-            );
-        }
+    public Optional<Kraut> getKraut(@PathVariable("id") Integer id) {
+        System.out.println(krautRepository.existsById(id));
+        // was passiert wenn kraut null ist?
+        return krautRepository.findById(id);
     }
 
     @RequestMapping(
@@ -63,7 +54,7 @@ public class KrautController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public Kraut updateKraeuter(@RequestBody Kraut kraut) {
-        Kraut updateKraeuter = krautRepository.getOne(kraut.getKraeuterId());
+        Kraut updateKraeuter = krautRepository.getOne(kraut.getKraeuter_id());
         updateKraeuter.setAusbreitung(kraut.getAusbreitung());
         updateKraeuter.setBestaeuber(kraut.getBestaeuber());
         updateKraeuter.setBlueten(kraut.getBlueten());
@@ -74,15 +65,13 @@ public class KrautController {
         updateKraeuter.setHeilanwendung(kraut.getHeilanwendung());
         updateKraeuter.setInhaltsstoffe(kraut.getInhaltsstoffe());
         updateKraeuter.setInsektenarten(kraut.getInsektenarten());
-        updateKraeuter.setLateinischerName(kraut.getLateinischerName());
+        updateKraeuter.setLateinischer_name(kraut.getLateinischer_name());
         updateKraeuter.setName(kraut.getName());
         updateKraeuter.setSamenreife(kraut.getSamenreife());
         updateKraeuter.setSchmetterlingsfutterpflanze(kraut.getSchmetterlingsfutterpflanze());
         updateKraeuter.setVorkommen(kraut.getVorkommen());
         updateKraeuter.setWuchs(kraut.getWuchs());
-        updateKraeuter.setVerwendungInKueche(kraut.getVerwendungInKueche());
-        updateKraeuter.setBluetenzeitAnfang(kraut.getBluetenzeitAnfang());
-        updateKraeuter.setBluetenzeitEnde(kraut.getBluetenzeitEnde());
+        updateKraeuter.setVerwendung_in_kueche(kraut.getVerwendung_in_kueche());
         return krautRepository.saveAndFlush(updateKraeuter);
     }
 

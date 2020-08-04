@@ -1,6 +1,7 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.entity.Route;
+import de.proj.Kraueterlehrpfad.Entity.Rebe;
+import de.proj.Kraueterlehrpfad.Entity.Route;
 import de.proj.Kraueterlehrpfad.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

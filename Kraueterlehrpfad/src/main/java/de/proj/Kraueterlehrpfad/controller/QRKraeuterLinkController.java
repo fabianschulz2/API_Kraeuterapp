@@ -1,8 +1,8 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.entity.Kraut;
-import de.proj.Kraueterlehrpfad.entity.QRCode;
-import de.proj.Kraueterlehrpfad.entity.QRKraeuterLink;
+import de.proj.Kraueterlehrpfad.Entity.Kraut;
+import de.proj.Kraueterlehrpfad.Entity.QRCode;
+import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
 import de.proj.Kraueterlehrpfad.repository.KrautRepository;
 import de.proj.Kraueterlehrpfad.repository.QRCodeRepository;
 import de.proj.Kraueterlehrpfad.repository.QRKraeuterLinkRepository;

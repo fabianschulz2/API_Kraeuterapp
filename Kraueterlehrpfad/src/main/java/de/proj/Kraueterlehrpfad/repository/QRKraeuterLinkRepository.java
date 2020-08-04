@@ -1,6 +1,6 @@
 package de.proj.Kraueterlehrpfad.repository;
 
-import de.proj.Kraueterlehrpfad.entity.QRKraeuterLink;
+import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLink;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
