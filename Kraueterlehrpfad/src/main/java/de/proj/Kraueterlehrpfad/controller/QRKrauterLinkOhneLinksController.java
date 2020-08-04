@@ -1,7 +1,6 @@
 package de.proj.Kraueterlehrpfad.controller;
 
-import de.proj.Kraueterlehrpfad.Entity.QRCodeOhneLinks;
-import de.proj.Kraueterlehrpfad.Entity.QRKraeuterLinkOhneLinks;
+import de.proj.Kraueterlehrpfad.entity.QRKraeuterLinkOhneLinks;
 import de.proj.Kraueterlehrpfad.repository.QRKraeuterLinkOhneLinksRebository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -32,10 +31,10 @@ public class QRKrauterLinkOhneLinksController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public QRKraeuterLinkOhneLinks updateLink(@RequestBody QRKraeuterLinkOhneLinks link) {
-        QRKraeuterLinkOhneLinks updateLink = qrKraeuterLinkOhneLinksRebository.getOne(link.getQr_link_id());
-        updateLink.setKraeuter_id_fk(link.getKraeuter_id_fk());
-        updateLink.setQr_id_fk(link.getQr_id_fk());
-        updateLink.setQr_link_id(link.getQr_link_id());
+        QRKraeuterLinkOhneLinks updateLink = qrKraeuterLinkOhneLinksRebository.getOne(link.getQrLinkId());
+        updateLink.setKraeuterIdFk(link.getKraeuterIdFk());
+        updateLink.setQrIdFk(link.getQrIdFk());
+        updateLink.setQrLinkId(link.getQrLinkId());
         return qrKraeuterLinkOhneLinksRebository.saveAndFlush(updateLink);
     }
 
