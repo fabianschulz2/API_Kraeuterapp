@@ -3,6 +3,7 @@ package de.proj.Kraueterlehrpfad.entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,16 +19,17 @@ public class Route {
     //diese annotation wird benoetigt um vor loeschen der route alle punkte zu loeschen
     @OneToMany(mappedBy = "route", orphanRemoval = true, cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Set<Point> pointSet;
+    private List<Point> pointList;
+
 
     public Route() {
 
     }
 
-    public Route(Integer routeId, String name, Set<Point> pointSet) {
+    public Route(Integer routeId, String name, List<Point> pointList) {
         this.routeId = routeId;
         this.name = name;
-        this.pointSet = pointSet;
+        this.pointList = pointList;
     }
 
     public Integer getRouteId() {
@@ -46,11 +48,11 @@ public class Route {
         this.name = name;
     }
 
-    public Set<Point> getPointSet() {
-        return pointSet;
+    public List<Point> getPointList() {
+        return pointList;
     }
 
-    public void setPointSet(Set<Point> pointSet) {
-        this.pointSet = pointSet;
+    public void setPointList(List<Point> pointList) {
+        this.pointList = pointList;
     }
 }
