@@ -69,6 +69,7 @@ public class RebeController {
         updateRebe.setBodenpflege(rebe.getBodenpflege());
         updateRebe.setWeinlage(rebe.getWeinlage());
         updateRebe.setWissenswertes(rebe.getWissenswertes());
+        updateRebe.setBildUrl(rebe.getBildUrl());
         return rebeRepository.saveAndFlush(updateRebe);
     }
 

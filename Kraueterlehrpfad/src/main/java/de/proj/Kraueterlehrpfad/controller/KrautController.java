@@ -83,6 +83,8 @@ public class KrautController {
         updateKraeuter.setVerwendungInKueche(kraut.getVerwendungInKueche());
         updateKraeuter.setBluetenzeitAnfang(kraut.getBluetenzeitAnfang());
         updateKraeuter.setBluetenzeitEnde(kraut.getBluetenzeitEnde());
+        updateKraeuter.setQuellen(kraut.getQuellen());
+        updateKraeuter.setBildUrl(kraut.getBildUrl());
         return krautRepository.saveAndFlush(updateKraeuter);
     }
 
